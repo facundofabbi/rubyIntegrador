@@ -11,23 +11,7 @@
   </head>
 
   <body>
-
-    <ul class="nav justify-content-end">
-        <%- if usuario_signed_in? %>
-          <li class="nav-item">
-            <%= link_to "Salir", destroy_usuario_session_path %>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to 'Iniciar', new_usuario_session_path %>
-          </li>
-          <li class="nav-item">
-            <%= link_to 'Registrarse', new_usuario_registration_path %>
-          </li>
-        <% end %>
-    </ul>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <%= render 'layouts/header' %>
     <%= yield %>
   </body>
 </html>

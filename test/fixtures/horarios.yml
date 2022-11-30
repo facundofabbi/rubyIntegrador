@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  dia: MyString
+  hora_inicio: 2022-11-29 19:18:44
+  hora_fin: 2022-11-29 19:18:44
+
+two:
+  dia: MyString
+  hora_inicio: 2022-11-29 19:18:44
+  hora_fin: 2022-11-29 19:18:44

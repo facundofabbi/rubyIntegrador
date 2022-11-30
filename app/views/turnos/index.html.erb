@@ -1,0 +1,26 @@
+<%= link_to 'Añadir un turno', new_turno_path %>
+<h1>Turnos:</h1>
+<table>
+  <tr>
+    <th>Fecha</th>
+    <th>Hora</th>
+    <th>Motivo</th>
+    <th>Estado</th>
+    <th>Detalles</th>
+  </tr>
+  <% @turnos.each do |tur| %>
+  <tr>
+    <td> <%= tur.fecha %> </td>
+    <td> <%= tur.hora %> </td>
+    <td> <%= tur.motivo %> </td>
+    <td> <%= tur.estado %> </td>
+    <td>
+    <%= link_to turno_path(tur.id) do %>
+        <span>Ver turno</span>
+    <%end%>
+    
+    </td>
+  </tr>
+  <%end%>
+  
+</table> 

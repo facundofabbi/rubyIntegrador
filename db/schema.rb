@@ -10,22 +10,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_23_211620) do
-  create_table "roles", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "name"
-    t.string "resource_type"
-    t.bigint "resource_id"
+ActiveRecord::Schema[7.0].define(version: 2022_11_29_221843) do
+  create_table "horarios", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "sucursal_id", null: false
+    t.string "dia", null: false
+    t.time "hora_inicio"
+    t.time "hora_fin"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
-    t.index ["name"], name: "index_roles_on_name"
-    t.index ["resource_type", "resource_id"], name: "index_roles_on_resource"
+    t.index ["sucursal_id", "dia"], name: "index_horarios_on_sucursal_id_and_dia", unique: true
+    t.index ["sucursal_id"], name: "index_horarios_on_sucursal_id"
+  end
+
+  create_table "sucursals", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "nombre", null: false
+    t.string "direccion"
+    t.integer "telefono"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "turnos", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.date "fecha"
+    t.time "hora"
+    t.string "motivo"
+    t.boolean "estado"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "usuarios", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "nombre", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "email", default: "", null: false
+    t.string "role", default: "cliente", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -33,14 +51,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_23_211620) do
     t.datetime "updated_at", null: false
     t.index ["nombre"], name: "index_usuarios_on_nombre", unique: true
     t.index ["reset_password_token"], name: "index_usuarios_on_reset_password_token", unique: true
-  end
-
-  create_table "usuarios_roles", id: false, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.bigint "usuario_id"
-    t.bigint "role_id"
-    t.index ["role_id"], name: "index_usuarios_roles_on_role_id"
-    t.index ["usuario_id", "role_id"], name: "index_usuarios_roles_on_usuario_id_and_role_id"
-    t.index ["usuario_id"], name: "index_usuarios_roles_on_usuario_id"
   end
 
 end

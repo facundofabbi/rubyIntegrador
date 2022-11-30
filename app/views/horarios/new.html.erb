@@ -1,0 +1,27 @@
+<h2>Agregar un nuevo horario para la sucursal numero <%= @sucursal_id %></h2>
+
+
+<%= form_with model: @horarios do |form| %>
+
+    <div>
+        <%= form.label :Dia %>
+        <%= form.select :dia, ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes"] %>
+    </div>
+
+    <div>
+        <%= form.label :hora_inicio %>
+        <%= form.time_field :hora_inicio%>
+    </div>
+    
+    <div>
+        <%= form.label :hora_fin %>
+        <%= form.time_field :hora_fin%>
+    </div>
+
+    <%= form.hidden_field :sucursal_id, value: @sucursal_id %>
+
+
+    <%= form.submit 'guardar' %>
+
+
+<%end%>

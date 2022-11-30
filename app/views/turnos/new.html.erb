@@ -1,0 +1,30 @@
+<h2>Agregar un nuevo Turno</h2>
+
+<%= link_to 'Volver al listado de turno', turnos_path %>
+
+<%= form_with model: @turno do |form| %>
+
+    <div>
+        <%= form.label :fecha %>
+        <%= form.date_field :fecha%>
+    </div>
+
+    <div>
+        <%= form.label :hora %>
+        <%= form.time_field :hora%>
+    </div>
+    
+    <div>
+        <%= form.label :motivo %>
+        <%= form.text_field :motivo%>
+    </div>
+
+    <div>
+        <%= form.label :estado %>
+        <%= form.check_box :estado%>
+    </div>
+
+    <%= form.submit %>
+
+
+<%end%>

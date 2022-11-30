@@ -1,0 +1,29 @@
+<%= link_to 'Añadir una sucursal', new_sucursal_path %>
+<h1>Sucursales:</h1>
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th>Direccion</th>
+    <th>Telefono</th>
+    <th>Horarios</th>
+    <th>Agregar horario</th>
+  </tr>
+  <% @sucursales.each do |su| %>
+    <tr>
+    <td> <%= su.nombre %> </td>
+    <td> <%= su.direccion %> </td>
+    <td> <%= su.telefono %> </td>
+    <td>
+    <%= link_to sucursals_path(su.id) do %>
+        <span>Ver sucursal</span>
+    <%end%>
+    </td>
+    <td>
+    <%= link_to new_horario_path(su.id) do %>
+        <span>Agregar horario</span>
+    <%end%>
+    </td>
+    </tr>
+  <%end%>
+  
+</table> 

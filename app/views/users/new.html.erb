@@ -1,0 +1,36 @@
+<h2>Agregar un nuevo usuario</h2>
+
+<%= link_to 'Volver al listado', users_path %>
+
+<%= form_with model: @usuarios do |form| %>
+
+    <div>
+        <%= form.label :nombre %>
+        <%= form.text_field :nombre%>
+    </div>
+
+    <div>
+        <%= form.label :email %>
+        <%= form.text_field :email%>
+    </div>
+    
+    <div>
+        <%= form.label :password %>
+        <%= form.text_field :password%>
+    </div>
+
+    <div>
+        <%= form.label :password_confirmation %>
+        <%= form.text_field :password_confirmation%>
+    </div>
+
+    <div>
+        <%= form.label :Role %>
+        <%= form.select :role, ["Administrador", "Personal Bancario"] %>
+    </div>
+
+
+    <%= form.submit %>
+
+
+<%end%>
