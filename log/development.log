@@ -15839,3 +15839,1296 @@ Processing by SucursalesController#index as HTML
 Completed 200 OK in 9ms (Views: 8.1ms | ActiveRecord: 0.5ms | Allocations: 3433)
 
 
+Started GET "/" for 127.0.0.1 at 2022-11-30 21:35:20 -0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (4.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 4.2ms | Allocations: 545)
+  Rendered layouts/_header.html.erb (Duration: 1.3ms | Allocations: 402)
+  Rendered layout layouts/application.html.erb (Duration: 52.8ms | Allocations: 35158)
+Completed 200 OK in 68ms (Views: 56.2ms | ActiveRecord: 0.0ms | Allocations: 43057)
+
+
+Started GET "/sucursales/" for 127.0.0.1 at 2022-11-30 21:35:25 -0300
+Processing by SucursalesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sucursales/index.html.erb within layouts/application
+  [1m[36mSucursal Load (1.4ms)[0m  [1m[34mSELECT `sucursals`.* FROM `sucursals`[0m
+  ↳ app/views/sucursales/index.html.erb:11
+  Rendered sucursales/index.html.erb within layouts/application (Duration: 21.2ms | Allocations: 16615)
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 150)
+  Rendered layout layouts/application.html.erb (Duration: 24.1ms | Allocations: 19172)
+Completed 200 OK in 27ms (Views: 20.7ms | ActiveRecord: 4.6ms | Allocations: 20170)
+
+
+Started GET "/sucursales/1/horarios/new" for 127.0.0.1 at 2022-11-30 21:38:04 -0300
+Processing by HorariosController#new as HTML
+  Parameters: {"id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering horarios/new.html.erb within layouts/application
+  Rendered horarios/new.html.erb within layouts/application (Duration: 14.0ms | Allocations: 8432)
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 151)
+  Rendered layout layouts/application.html.erb (Duration: 16.9ms | Allocations: 10814)
+Completed 200 OK in 59ms (Views: 18.6ms | ActiveRecord: 3.4ms | Allocations: 26188)
+
+
+Started POST "/sucursales/1/horarios/new" for 127.0.0.1 at 2022-11-30 21:38:13 -0300
+Processing by HorariosController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "dia"=>"Miercoles", "hora_inicio"=>"12:00", "hora_fin"=>"17:00", "sucursal_id"=>"1", "commit"=>"guardar", "id"=>"1"}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/horarios_controller.rb:9:in `create'
+  [1m[36mHorario Create (0.8ms)[0m  [1m[32mINSERT INTO `horarios` (`sucursal_id`, `dia`, `hora_inicio`, `hora_fin`, `created_at`, `updated_at`) VALUES (1, 'Miercoles', '12:00:00', '17:00:00', '2022-12-01 00:38:13.143493', '2022-12-01 00:38:13.143493')[0m
+  ↳ app/controllers/horarios_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (5.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/horarios_controller.rb:9:in `create'
+Redirected to http://127.0.0.1:3000/sucursales
+Completed 302 Found in 14ms (ActiveRecord: 6.8ms | Allocations: 3006)
+
+
+Started GET "/sucursales" for 127.0.0.1 at 2022-11-30 21:38:13 -0300
+Processing by SucursalesController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering sucursales/index.html.erb within layouts/application
+  [1m[36mSucursal Load (0.3ms)[0m  [1m[34mSELECT `sucursals`.* FROM `sucursals`[0m
+  ↳ app/views/sucursales/index.html.erb:11
+  Rendered sucursales/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 673)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 150)
+  Rendered layout layouts/application.html.erb (Duration: 7.0ms | Allocations: 3254)
+Completed 200 OK in 8ms (Views: 7.7ms | ActiveRecord: 0.3ms | Allocations: 3566)
+
+
+Started GET "/sucursales" for 127.0.0.1 at 2022-11-30 21:46:41 -0300
+Processing by SucursalesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sucursales/index.html.erb within layouts/application
+  [1m[36mSucursal Load (0.2ms)[0m  [1m[34mSELECT `sucursals`.* FROM `sucursals`[0m
+  ↳ app/views/sucursales/index.html.erb:12
+  Rendered sucursales/index.html.erb within layouts/application (Duration: 3.8ms | Allocations: 2463)
+  Rendered layouts/_header.html.erb (Duration: 1.0ms | Allocations: 416)
+  Rendered layout layouts/application.html.erb (Duration: 14.3ms | Allocations: 16955)
+Completed 200 OK in 31ms (Views: 15.3ms | ActiveRecord: 0.4ms | Allocations: 20988)
+
+
+Started GET "/sucursales/1/horarios" for 127.0.0.1 at 2022-11-30 21:46:43 -0300
+Processing by HorariosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSucursal Load (0.3ms)[0m  [1m[34mSELECT `sucursals`.* FROM `sucursals` WHERE `sucursals`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/horarios_controller.rb:17:in `show'
+  [1m[36mHorario Load (0.6ms)[0m  [1m[34mSELECT `horarios`.* FROM `horarios` WHERE `horarios`.`sucursal_id` = 1 LIMIT 1[0m
+  ↳ app/controllers/horarios_controller.rb:18:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering horarios/show.html.erb within layouts/application
+  Rendered horarios/show.html.erb within layouts/application (Duration: 0.6ms | Allocations: 180)
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 163)
+  Rendered layout layouts/application.html.erb (Duration: 4.6ms | Allocations: 2722)
+Completed 200 OK in 13ms (Views: 5.6ms | ActiveRecord: 0.9ms | Allocations: 8206)
+
+
+Started GET "/sucursales/1" for 127.0.0.1 at 2022-11-30 21:47:03 -0300
+Processing by SucursalesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSucursal Load (0.7ms)[0m  [1m[34mSELECT `sucursals`.* FROM `sucursals` WHERE `sucursals`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/sucursales_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering sucursales/show.html.erb within layouts/application
+  Rendered sucursales/show.html.erb within layouts/application (Duration: 1.3ms | Allocations: 148)
+  Rendered layouts/_header.html.erb (Duration: 0.5ms | Allocations: 163)
+  Rendered layout layouts/application.html.erb (Duration: 7.1ms | Allocations: 2692)
+Completed 200 OK in 11ms (Views: 7.7ms | ActiveRecord: 0.7ms | Allocations: 3459)
+
+
+Started GET "/sucursales/1/horarios" for 127.0.0.1 at 2022-11-30 21:47:06 -0300
+Processing by HorariosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSucursal Load (0.6ms)[0m  [1m[34mSELECT `sucursals`.* FROM `sucursals` WHERE `sucursals`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/horarios_controller.rb:17:in `show'
+  [1m[36mHorario Load (0.5ms)[0m  [1m[34mSELECT `horarios`.* FROM `horarios` WHERE `horarios`.`sucursal_id` = 1 LIMIT 1[0m
+  ↳ app/controllers/horarios_controller.rb:18:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering horarios/show.html.erb within layouts/application
+  Rendered horarios/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 30)
+  Rendered layouts/_header.html.erb (Duration: 0.5ms | Allocations: 163)
+  Rendered layout layouts/application.html.erb (Duration: 6.9ms | Allocations: 2562)
+Completed 200 OK in 12ms (Views: 7.5ms | ActiveRecord: 1.0ms | Allocations: 3742)
+
+
+Started GET "/sucursales/1/horarios" for 127.0.0.1 at 2022-11-30 21:48:19 -0300
+Processing by HorariosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSucursal Load (0.3ms)[0m  [1m[34mSELECT `sucursals`.* FROM `sucursals` WHERE `sucursals`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/horarios_controller.rb:17:in `show'
+  [1m[36mHorario Load (0.2ms)[0m  [1m[34mSELECT `horarios`.* FROM `horarios` WHERE `horarios`.`sucursal_id` = 1 LIMIT 1[0m
+  ↳ app/controllers/horarios_controller.rb:18:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering horarios/show.html.erb within layouts/application
+  Rendered horarios/show.html.erb within layouts/application (Duration: 13.1ms | Allocations: 6762)
+  Rendered layout layouts/application.html.erb (Duration: 13.3ms | Allocations: 6829)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.6ms | Allocations: 8656)
+
+
+  
+ActionView::Template::Error (undefined method `each' for #<Horario:0x00007fb6008a4220>):
+    1: <p>Detalles de los horarios de la sucursal:  <%= @sucursal.nombre %></p>
+    2: <% @horario.each do |ho| %>
+    3: <%= @ho.dia %>
+    4: <%= @ho.hora_inicio %>
+    5: <%= @ho.hora_fin %>
+  
+app/views/horarios/show.html.erb:2
+Started GET "/sucursales/1/horarios" for 127.0.0.1 at 2022-11-30 21:51:50 -0300
+Processing by HorariosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSucursal Load (0.3ms)[0m  [1m[34mSELECT `sucursals`.* FROM `sucursals` WHERE `sucursals`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/horarios_controller.rb:17:in `show'
+  [1m[36mHorario Load (0.3ms)[0m  [1m[34mSELECT `horarios`.* FROM `horarios` WHERE `horarios`.`sucursal_id` = 1 LIMIT 1[0m
+  ↳ app/controllers/horarios_controller.rb:18:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering horarios/show.html.erb within layouts/application
+  Rendered horarios/show.html.erb within layouts/application (Duration: 5.7ms | Allocations: 3406)
+  Rendered layout layouts/application.html.erb (Duration: 6.0ms | Allocations: 3473)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.6ms | Allocations: 5294)
+
+
+  
+ActionView::Template::Error (undefined method `each' for #<Horario:0x0000562694074098>):
+     5:     <th>Hora de inicio</th>
+     6:     <th>Hora de fin</th>
+     7:   </tr>
+     8:   <% @horario.each do |ho| %>
+     9:     <tr>
+    10:     <td> <%= ho.dia %> </td>
+    11:     <td> <%= ho.hora_inicio %> </td>
+  
+app/views/horarios/show.html.erb:8
+Started GET "/sucursales/1/horarios" for 127.0.0.1 at 2022-11-30 21:52:31 -0300
+Processing by HorariosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSucursal Load (0.4ms)[0m  [1m[34mSELECT `sucursals`.* FROM `sucursals` WHERE `sucursals`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/horarios_controller.rb:17:in `show'
+  [1m[36mHorario Load (0.3ms)[0m  [1m[34mSELECT `horarios`.* FROM `horarios` WHERE `horarios`.`sucursal_id` = 1 LIMIT 1[0m
+  ↳ app/controllers/horarios_controller.rb:18:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering horarios/show.html.erb within layouts/application
+  Rendered horarios/show.html.erb within layouts/application (Duration: 1.4ms | Allocations: 1679)
+  Rendered layout layouts/application.html.erb (Duration: 1.6ms | Allocations: 1746)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.7ms | Allocations: 3566)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+     5:     <th>Hora de inicio</th>
+     6:     <th>Hora de fin</th>
+     7:   </tr>
+     8:   <% @horarios.each do |ho| %>
+     9:     <tr>
+    10:     <td> <%= ho.dia %> </td>
+    11:     <td> <%= ho.hora_inicio %> </td>
+  
+app/views/horarios/show.html.erb:8
+Started GET "/sucursales/1/horarios" for 127.0.0.1 at 2022-11-30 21:54:51 -0300
+Processing by HorariosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSucursal Load (0.1ms)[0m  [1m[34mSELECT `sucursals`.* FROM `sucursals` WHERE `sucursals`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/horarios_controller.rb:17:in `show'
+  [1m[36mHorario Load (0.3ms)[0m  [1m[34mSELECT `horarios`.* FROM `horarios` WHERE `horarios`.`id` IN (NULL)[0m
+  ↳ app/controllers/horarios_controller.rb:18:in `show'
+Completed 404 Not Found in 13ms (ActiveRecord: 4.6ms | Allocations: 8874)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find all Horarios with 'id': (all, {:conditions=>{:sucursal_id=>"1"}}) (found 0 results, but was looking for 2).):
+  
+app/controllers/horarios_controller.rb:18:in `show'
+Started GET "/sucursales/1/horarios" for 127.0.0.1 at 2022-11-30 21:55:32 -0300
+Processing by HorariosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSucursal Load (0.2ms)[0m  [1m[34mSELECT `sucursals`.* FROM `sucursals` WHERE `sucursals`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/horarios_controller.rb:17:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering horarios/show.html.erb within layouts/application
+  [1m[36mHorario Load (0.4ms)[0m  [1m[34mSELECT `horarios`.* FROM `horarios` WHERE `horarios`.`sucursal_id` = 1[0m
+  ↳ app/views/horarios/show.html.erb:8
+  Rendered horarios/show.html.erb within layouts/application (Duration: 7.8ms | Allocations: 2235)
+  Rendered layouts/_header.html.erb (Duration: 1.5ms | Allocations: 426)
+  Rendered layout layouts/application.html.erb (Duration: 36.9ms | Allocations: 16727)
+Completed 200 OK in 55ms (Views: 37.4ms | ActiveRecord: 4.9ms | Allocations: 23927)
+
+
+Started GET "/" for 127.0.0.1 at 2022-12-01 17:14:40 -0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (4.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 545)
+  Rendered layouts/_header.html.erb (Duration: 0.8ms | Allocations: 402)
+  Rendered layout layouts/application.html.erb (Duration: 32.1ms | Allocations: 35448)
+Completed 200 OK in 42ms (Views: 34.6ms | ActiveRecord: 0.0ms | Allocations: 43347)
+
+
+Started GET "/turnos/" for 127.0.0.1 at 2022-12-01 17:14:57 -0300
+Processing by TurnosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering turnos/index.html.erb within layouts/application
+  [1m[36mTurno Load (1.0ms)[0m  [1m[34mSELECT `turnos`.* FROM `turnos`[0m
+  ↳ app/views/turnos/index.html.erb:11
+  Rendered turnos/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 892)
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 150)
+  Rendered layout layouts/application.html.erb (Duration: 5.6ms | Allocations: 3441)
+Completed 200 OK in 8ms (Views: 5.4ms | ActiveRecord: 1.0ms | Allocations: 4438)
+
+
+Started GET "/sucursales/" for 127.0.0.1 at 2022-12-01 17:15:04 -0300
+Processing by SucursalesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sucursales/index.html.erb within layouts/application
+  [1m[36mSucursal Load (1.2ms)[0m  [1m[34mSELECT `sucursals`.* FROM `sucursals`[0m
+  ↳ app/views/sucursales/index.html.erb:12
+  Rendered sucursales/index.html.erb within layouts/application (Duration: 17.5ms | Allocations: 16680)
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 150)
+  Rendered layout layouts/application.html.erb (Duration: 20.4ms | Allocations: 19226)
+Completed 200 OK in 22ms (Views: 17.6ms | ActiveRecord: 3.5ms | Allocations: 20204)
+
+
+Started GET "/sucursales/1/horarios" for 127.0.0.1 at 2022-12-01 17:15:08 -0300
+Processing by HorariosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSucursal Load (0.5ms)[0m  [1m[34mSELECT `sucursals`.* FROM `sucursals` WHERE `sucursals`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/horarios_controller.rb:17:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering horarios/show.html.erb within layouts/application
+  [1m[36mHorario Load (1.5ms)[0m  [1m[34mSELECT `horarios`.* FROM `horarios` WHERE `horarios`.`sucursal_id` = 1[0m
+  ↳ app/views/horarios/show.html.erb:8
+  Rendered horarios/show.html.erb within layouts/application (Duration: 9.8ms | Allocations: 14822)
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 163)
+  Rendered layout layouts/application.html.erb (Duration: 12.9ms | Allocations: 17387)
+Completed 200 OK in 22ms (Views: 11.5ms | ActiveRecord: 3.9ms | Allocations: 20953)
+
+
+Started GET "/sucursales/new" for 127.0.0.1 at 2022-12-01 17:15:24 -0300
+Processing by SucursalesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sucursales/new.html.erb within layouts/application
+  Rendered sucursales/new.html.erb within layouts/application (Duration: 55.9ms | Allocations: 7429)
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 151)
+  Rendered layout layouts/application.html.erb (Duration: 60.7ms | Allocations: 9806)
+Completed 200 OK in 61ms (Views: 61.0ms | ActiveRecord: 0.0ms | Allocations: 10136)
+
+
+Started GET "/turnos/" for 127.0.0.1 at 2022-12-01 17:15:29 -0300
+Processing by TurnosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering turnos/index.html.erb within layouts/application
+  [1m[36mTurno Load (0.2ms)[0m  [1m[34mSELECT `turnos`.* FROM `turnos`[0m
+  ↳ app/views/turnos/index.html.erb:11
+  Rendered turnos/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 579)
+  Rendered layouts/_header.html.erb (Duration: 0.6ms | Allocations: 150)
+  Rendered layout layouts/application.html.erb (Duration: 7.5ms | Allocations: 3118)
+Completed 200 OK in 9ms (Views: 8.2ms | ActiveRecord: 0.2ms | Allocations: 3387)
+
+
+Started GET "/users/" for 127.0.0.1 at 2022-12-01 17:15:31 -0300
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUsuario Load (1.0ms)[0m  [1m[34mSELECT `usuarios`.* FROM `usuarios`[0m
+  ↳ app/views/users/index.html.erb:11
+  Rendered users/index.html.erb within layouts/application (Duration: 3.5ms | Allocations: 903)
+  Rendered layouts/_header.html.erb (Duration: 0.6ms | Allocations: 150)
+  Rendered layout layouts/application.html.erb (Duration: 12.4ms | Allocations: 3425)
+Completed 200 OK in 15ms (Views: 13.0ms | ActiveRecord: 1.0ms | Allocations: 4276)
+
+
+Started GET "/turnos/" for 127.0.0.1 at 2022-12-01 17:16:00 -0300
+Processing by TurnosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering turnos/index.html.erb within layouts/application
+  [1m[36mTurno Load (0.2ms)[0m  [1m[34mSELECT `turnos`.* FROM `turnos`[0m
+  ↳ app/views/turnos/index.html.erb:11
+  Rendered turnos/index.html.erb within layouts/application (Duration: 1.6ms | Allocations: 579)
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 150)
+  Rendered layout layouts/application.html.erb (Duration: 5.5ms | Allocations: 3109)
+Completed 200 OK in 7ms (Views: 5.7ms | ActiveRecord: 0.2ms | Allocations: 3370)
+
+
+Started GET "/turnos/new" for 127.0.0.1 at 2022-12-01 17:16:00 -0300
+Processing by TurnosController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering turnos/new.html.erb within layouts/application
+  Rendered turnos/new.html.erb within layouts/application (Duration: 23.7ms | Allocations: 5603)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 150)
+  Rendered layout layouts/application.html.erb (Duration: 25.9ms | Allocations: 7991)
+Completed 200 OK in 47ms (Views: 26.5ms | ActiveRecord: 3.6ms | Allocations: 22663)
+
+
+Started POST "/turnos" for 127.0.0.1 at 2022-12-01 17:16:21 -0300
+Processing by TurnosController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "turno"=>{"fecha"=>"2000-05-05", "hora"=>"13:13", "motivo"=>"lalala", "estado"=>"0"}, "commit"=>"Create Turno"}
+[31mUnpermitted parameter: :fecha. Context: { controller: TurnosController, action: create, request: #<ActionDispatch::Request:0x000056513863d410>, params: {"authenticity_token"=>"[FILTERED]", "turno"=>{"fecha"=>"2000-05-05", "hora"=>"13:13", "motivo"=>"lalala", "estado"=>"0"}, "commit"=>"Create Turno", "controller"=>"turnos", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/turnos_controller.rb:16:in `create'
+  [1m[36mTurno Create (0.6ms)[0m  [1m[32mINSERT INTO `turnos` (`fecha`, `hora`, `motivo`, `estado`, `created_at`, `updated_at`) VALUES (NULL, '13:13:00', 'lalala', FALSE, '2022-12-01 20:16:21.110026', '2022-12-01 20:16:21.110026')[0m
+  ↳ app/controllers/turnos_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (8.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/turnos_controller.rb:16:in `create'
+Redirected to http://127.0.0.1:3000/turnos
+Completed 302 Found in 15ms (ActiveRecord: 9.5ms | Allocations: 3407)
+
+
+Started GET "/turnos" for 127.0.0.1 at 2022-12-01 17:16:21 -0300
+Processing by TurnosController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering turnos/index.html.erb within layouts/application
+  [1m[36mTurno Load (0.2ms)[0m  [1m[34mSELECT `turnos`.* FROM `turnos`[0m
+  ↳ app/views/turnos/index.html.erb:11
+  Rendered turnos/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 650)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 145)
+  Rendered layout layouts/application.html.erb (Duration: 3.5ms | Allocations: 3232)
+Completed 200 OK in 4ms (Views: 3.6ms | ActiveRecord: 0.2ms | Allocations: 3543)
+
+
+Started GET "/turnos/new" for 127.0.0.1 at 2022-12-01 17:17:17 -0300
+Processing by TurnosController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering turnos/new.html.erb within layouts/application
+  Rendered turnos/new.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1505)
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 145)
+  Rendered layout layouts/application.html.erb (Duration: 6.2ms | Allocations: 3869)
+Completed 200 OK in 7ms (Views: 6.7ms | ActiveRecord: 0.0ms | Allocations: 4131)
+
+
+Started POST "/turnos" for 127.0.0.1 at 2022-12-01 17:17:28 -0300
+Processing by TurnosController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "turno"=>{"fecha"=>"2022-01-05", "hora"=>"13:13", "motivo"=>"njjk", "estado"=>"0"}, "commit"=>"Create Turno"}
+[31mUnpermitted parameter: :fecha. Context: { controller: TurnosController, action: create, request: #<ActionDispatch::Request:0x00007f62f4a84248>, params: {"authenticity_token"=>"[FILTERED]", "turno"=>{"fecha"=>"2022-01-05", "hora"=>"13:13", "motivo"=>"njjk", "estado"=>"0"}, "commit"=>"Create Turno", "controller"=>"turnos", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/turnos_controller.rb:16:in `create'
+  [1m[36mTurno Create (0.3ms)[0m  [1m[32mINSERT INTO `turnos` (`fecha`, `hora`, `motivo`, `estado`, `created_at`, `updated_at`) VALUES (NULL, '13:13:00', 'njjk', FALSE, '2022-12-01 20:17:28.066958', '2022-12-01 20:17:28.066958')[0m
+  ↳ app/controllers/turnos_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (9.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/turnos_controller.rb:16:in `create'
+Redirected to http://127.0.0.1:3000/turnos
+Completed 302 Found in 12ms (ActiveRecord: 9.4ms | Allocations: 2273)
+
+
+Started GET "/turnos" for 127.0.0.1 at 2022-12-01 17:17:28 -0300
+Processing by TurnosController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering turnos/index.html.erb within layouts/application
+  [1m[36mTurno Load (0.3ms)[0m  [1m[34mSELECT `turnos`.* FROM `turnos`[0m
+  ↳ app/views/turnos/index.html.erb:11
+  Rendered turnos/index.html.erb within layouts/application (Duration: 1.3ms | Allocations: 696)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 145)
+  Rendered layout layouts/application.html.erb (Duration: 3.4ms | Allocations: 3216)
+Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.3ms | Allocations: 3478)
+
+
+Started GET "/" for 127.0.0.1 at 2022-12-01 17:24:25 -0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 234)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 120)
+  Rendered layout layouts/application.html.erb (Duration: 7.6ms | Allocations: 13991)
+Completed 200 OK in 10ms (Views: 8.2ms | Allocations: 17498)
+
+
+Started GET "/sucursales/" for 127.0.0.1 at 2022-12-01 17:24:27 -0300
+Processing by SucursalesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sucursales/index.html.erb within layouts/application
+  [1m[36mSucursal Load (0.3ms)[0m  [1m[34mSELECT `sucursals`.* FROM `sucursals`[0m
+  ↳ app/views/sucursales/index.html.erb:12
+  Rendered sucursales/index.html.erb within layouts/application (Duration: 4.7ms | Allocations: 2109)
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 150)
+  Rendered layout layouts/application.html.erb (Duration: 7.0ms | Allocations: 4641)
+Completed 200 OK in 9ms (Views: 8.1ms | ActiveRecord: 0.5ms | Allocations: 5504)
+
+
+Started GET "/sucursales/1/horarios/new" for 127.0.0.1 at 2022-12-01 17:24:28 -0300
+Processing by HorariosController#new as HTML
+  Parameters: {"id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering horarios/new.html.erb within layouts/application
+  Rendered horarios/new.html.erb within layouts/application (Duration: 4.4ms | Allocations: 5162)
+  Rendered layouts/_header.html.erb (Duration: 0.8ms | Allocations: 151)
+  Rendered layout layouts/application.html.erb (Duration: 8.9ms | Allocations: 7544)
+Completed 200 OK in 17ms (Views: 9.7ms | ActiveRecord: 0.0ms | Allocations: 9904)
+
+
+Started POST "/sucursales/1/horarios/new" for 127.0.0.1 at 2022-12-01 17:24:35 -0300
+Processing by HorariosController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "dia"=>"Viernes", "hora_inicio"=>"13:13", "hora_fin"=>"16:53", "sucursal_id"=>"1", "commit"=>"guardar", "id"=>"1"}
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms | Allocations: 783)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: horario
+Did you mean?  hora_inicio):
+  
+app/controllers/horarios_controller.rb:26:in `horario_params'
+app/controllers/horarios_controller.rb:8:in `create'
+Started GET "/sucursales/1/horarios/new" for 127.0.0.1 at 2022-12-01 17:24:35 -0300
+Processing by HorariosController#new as HTML
+  Parameters: {"id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering horarios/new.html.erb within layouts/application
+  Rendered horarios/new.html.erb within layouts/application (Duration: 1.5ms | Allocations: 3976)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 145)
+  Rendered layout layouts/application.html.erb (Duration: 3.6ms | Allocations: 6344)
+Completed 200 OK in 4ms (Views: 3.8ms | ActiveRecord: 0.0ms | Allocations: 6617)
+
+
+Started GET "/sucursales/1" for 127.0.0.1 at 2022-12-01 17:24:41 -0300
+Processing by SucursalesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSucursal Load (0.4ms)[0m  [1m[34mSELECT `sucursals`.* FROM `sucursals` WHERE `sucursals`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/sucursales_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering sucursales/show.html.erb within layouts/application
+  Rendered sucursales/show.html.erb within layouts/application (Duration: 1.1ms | Allocations: 148)
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 163)
+  Rendered layout layouts/application.html.erb (Duration: 6.7ms | Allocations: 2674)
+Completed 200 OK in 9ms (Views: 7.1ms | ActiveRecord: 0.4ms | Allocations: 4008)
+
+
+Started GET "/sucursales" for 127.0.0.1 at 2022-12-01 17:24:45 -0300
+Processing by SucursalesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sucursales/index.html.erb within layouts/application
+  [1m[36mSucursal Load (0.4ms)[0m  [1m[34mSELECT `sucursals`.* FROM `sucursals`[0m
+  ↳ app/views/sucursales/index.html.erb:12
+  Rendered sucursales/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 702)
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 145)
+  Rendered layout layouts/application.html.erb (Duration: 5.5ms | Allocations: 3219)
+Completed 200 OK in 7ms (Views: 5.7ms | ActiveRecord: 0.4ms | Allocations: 3477)
+
+
+Started GET "/sucursales/1/horarios" for 127.0.0.1 at 2022-12-01 17:24:49 -0300
+Processing by HorariosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSucursal Load (0.4ms)[0m  [1m[34mSELECT `sucursals`.* FROM `sucursals` WHERE `sucursals`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/horarios_controller.rb:17:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering horarios/show.html.erb within layouts/application
+  [1m[36mHorario Load (1.0ms)[0m  [1m[34mSELECT `horarios`.* FROM `horarios` WHERE `horarios`.`sucursal_id` = 1[0m
+  ↳ app/views/horarios/show.html.erb:8
+  Rendered horarios/show.html.erb within layouts/application (Duration: 3.2ms | Allocations: 622)
+  Rendered layouts/_header.html.erb (Duration: 0.4ms | Allocations: 163)
+  Rendered layout layouts/application.html.erb (Duration: 8.0ms | Allocations: 3156)
+Completed 200 OK in 11ms (Views: 7.6ms | ActiveRecord: 1.3ms | Allocations: 3936)
+
+
+Started GET "/sucursales" for 127.0.0.1 at 2022-12-01 17:25:14 -0300
+Processing by SucursalesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sucursales/index.html.erb within layouts/application
+  [1m[36mSucursal Load (0.2ms)[0m  [1m[34mSELECT `sucursals`.* FROM `sucursals`[0m
+  ↳ app/views/sucursales/index.html.erb:12
+  Rendered sucursales/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 698)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 145)
+  Rendered layout layouts/application.html.erb (Duration: 4.4ms | Allocations: 3215)
+Completed 200 OK in 6ms (Views: 4.9ms | ActiveRecord: 0.2ms | Allocations: 3472)
+
+
+Started GET "/sucursales/1/horarios/new" for 127.0.0.1 at 2022-12-01 17:25:16 -0300
+Processing by HorariosController#new as HTML
+  Parameters: {"id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering horarios/new.html.erb within layouts/application
+  Rendered horarios/new.html.erb within layouts/application (Duration: 3.6ms | Allocations: 4006)
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 145)
+  Rendered layout layouts/application.html.erb (Duration: 7.2ms | Allocations: 6358)
+Completed 200 OK in 8ms (Views: 7.7ms | ActiveRecord: 0.0ms | Allocations: 6631)
+
+
+Started POST "/sucursales/1/horarios/new" for 127.0.0.1 at 2022-12-01 17:25:29 -0300
+Processing by HorariosController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "dia"=>"Viernes", "hora_inicio"=>"16:16", "hora_fin"=>"16:18", "sucursal_id"=>"1", "commit"=>"guardar", "id"=>"1"}
+Completed 400 Bad Request in 2ms (ActiveRecord: 0.0ms | Allocations: 790)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: horario
+Did you mean?  hora_inicio):
+  
+app/controllers/horarios_controller.rb:26:in `horario_params'
+app/controllers/horarios_controller.rb:8:in `create'
+Started GET "/sucursales/1/horarios/new" for 127.0.0.1 at 2022-12-01 17:25:29 -0300
+Processing by HorariosController#new as HTML
+  Parameters: {"id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering horarios/new.html.erb within layouts/application
+  Rendered horarios/new.html.erb within layouts/application (Duration: 1.8ms | Allocations: 3987)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 145)
+  Rendered layout layouts/application.html.erb (Duration: 3.8ms | Allocations: 6355)
+Completed 200 OK in 5ms (Views: 4.1ms | ActiveRecord: 0.0ms | Allocations: 6628)
+
+
+Started GET "/sucursales" for 127.0.0.1 at 2022-12-01 17:26:54 -0300
+Processing by SucursalesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sucursales/index.html.erb within layouts/application
+  [1m[36mSucursal Load (0.2ms)[0m  [1m[34mSELECT `sucursals`.* FROM `sucursals`[0m
+  ↳ app/views/sucursales/index.html.erb:12
+  Rendered sucursales/index.html.erb within layouts/application (Duration: 6.0ms | Allocations: 2699)
+  Rendered layouts/_header.html.erb (Duration: 0.9ms | Allocations: 416)
+  Rendered layout layouts/application.html.erb (Duration: 15.4ms | Allocations: 17166)
+Completed 200 OK in 18ms (Views: 13.9ms | ActiveRecord: 2.2ms | Allocations: 21192)
+
+
+Started GET "/sucursales/1/horarios/new" for 127.0.0.1 at 2022-12-01 17:26:56 -0300
+Processing by HorariosController#new as HTML
+  Parameters: {"id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering horarios/new.html.erb within layouts/application
+  Rendered horarios/new.html.erb within layouts/application (Duration: 2.4ms | Allocations: 4860)
+  Rendered layouts/_header.html.erb (Duration: 0.4ms | Allocations: 151)
+  Rendered layout layouts/application.html.erb (Duration: 6.4ms | Allocations: 7226)
+Completed 200 OK in 15ms (Views: 7.5ms | ActiveRecord: 2.3ms | Allocations: 9956)
+
+
+Started POST "/sucursales/1/horarios/new" for 127.0.0.1 at 2022-12-01 17:27:10 -0300
+Processing by HorariosController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "dia"=>"Jueves", "hora_inicio"=>"18:18", "hora_fin"=>"15:03", "sucursal_id"=>"1", "commit"=>"guardar", "id"=>"1"}
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms | Allocations: 778)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: horario
+Did you mean?  hora_inicio):
+  
+app/controllers/horarios_controller.rb:26:in `horario_params'
+app/controllers/horarios_controller.rb:8:in `create'
+Started GET "/sucursales/1/horarios/new" for 127.0.0.1 at 2022-12-01 17:27:10 -0300
+Processing by HorariosController#new as HTML
+  Parameters: {"id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering horarios/new.html.erb within layouts/application
+  Rendered horarios/new.html.erb within layouts/application (Duration: 2.3ms | Allocations: 3974)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 145)
+  Rendered layout layouts/application.html.erb (Duration: 5.3ms | Allocations: 6342)
+Completed 200 OK in 6ms (Views: 5.7ms | ActiveRecord: 0.0ms | Allocations: 6615)
+
+
+Started GET "/sucursales/1/horarios/new" for 127.0.0.1 at 2022-12-01 17:29:14 -0300
+Processing by HorariosController#new as HTML
+  Parameters: {"id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering horarios/new.html.erb within layouts/application
+  Rendered horarios/new.html.erb within layouts/application (Duration: 8.7ms | Allocations: 3891)
+  Rendered layout layouts/application.html.erb (Duration: 8.9ms | Allocations: 3958)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms | Allocations: 4873)
+
+
+  
+ActionView::Template::Error (undefined method `horarios_path' for #<ActionView::Base:0x0000000001a1f8>
+Did you mean?  horario_path):
+    1: <h2>Agregar un nuevo horario para la sucursal numero <%= @sucursal_id %></h2>
+    2: 
+    3: 
+    4: <%= form_with model: @horario do |form| %>
+    5: 
+    6:     <div>
+    7:         <%= form.label :Dia %>
+  
+app/views/horarios/new.html.erb:4
+Started GET "/sucursales/1/horarios/new" for 127.0.0.1 at 2022-12-01 17:29:38 -0300
+Processing by HorariosController#new as HTML
+  Parameters: {"id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering horarios/new.html.erb within layouts/application
+  Rendered horarios/new.html.erb within layouts/application (Duration: 9.8ms | Allocations: 3830)
+  Rendered layout layouts/application.html.erb (Duration: 10.0ms | Allocations: 3897)
+Completed 500 Internal Server Error in 26ms (ActiveRecord: 4.2ms | Allocations: 9758)
+
+
+  
+ActionView::Template::Error (undefined method `horarios_path' for #<ActionView::Base:0x0000000001fd88>
+Did you mean?  horario_path):
+    1: <h2>Agregar un nuevo horario para la sucursal numero <%= @sucursal_id %></h2>
+    2: 
+    3: 
+    4: <%= form_with model: @horarios do |form| %>
+    5: 
+    6:     <div>
+    7:         <%= form.label :Dia %>
+  
+app/views/horarios/new.html.erb:4
+Started GET "/sucursales/1/horarios/new" for 127.0.0.1 at 2022-12-01 17:29:54 -0300
+Processing by HorariosController#new as HTML
+  Parameters: {"id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering horarios/new.html.erb within layouts/application
+  Rendered horarios/new.html.erb within layouts/application (Duration: 4.8ms | Allocations: 4923)
+  Rendered layouts/_header.html.erb (Duration: 0.8ms | Allocations: 416)
+  Rendered layout layouts/application.html.erb (Duration: 14.6ms | Allocations: 19245)
+Completed 200 OK in 16ms (Views: 15.7ms | ActiveRecord: 0.0ms | Allocations: 20185)
+
+
+Started GET "/sucursales/1/horarios/new" for 127.0.0.1 at 2022-12-01 17:30:17 -0300
+Processing by HorariosController#new as HTML
+  Parameters: {"id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering horarios/new.html.erb within layouts/application
+  Rendered horarios/new.html.erb within layouts/application (Duration: 6.3ms | Allocations: 3522)
+  Rendered layout layouts/application.html.erb (Duration: 6.5ms | Allocations: 3589)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 2.0ms | Allocations: 9143)
+
+
+  
+ActionView::Template::Error (undefined method `horarios_path' for #<ActionView::Base:0x00000000025760>
+Did you mean?  horario_path):
+    1: <h2>Agregar un nuevo horario para la sucursal numero <%= @sucursal_id %></h2>
+    2: 
+    3: 
+    4: <%= form_with model: @horario do |form| %>
+    5: 
+    6:     <div>
+    7:         <%= form.label :Dia %>
+  
+app/views/horarios/new.html.erb:4
+Started GET "/sucursales/1/horarios/new" for 127.0.0.1 at 2022-12-01 17:30:25 -0300
+Processing by HorariosController#new as HTML
+  Parameters: {"id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering horarios/new.html.erb within layouts/application
+  Rendered horarios/new.html.erb within layouts/application (Duration: 5.9ms | Allocations: 4955)
+  Rendered layouts/_header.html.erb (Duration: 0.8ms | Allocations: 419)
+  Rendered layout layouts/application.html.erb (Duration: 17.8ms | Allocations: 19310)
+Completed 200 OK in 19ms (Views: 18.9ms | ActiveRecord: 0.0ms | Allocations: 20250)
+
+
+Started GET "/sucursales/1/horarios/new" for 127.0.0.1 at 2022-12-01 17:30:30 -0300
+Processing by HorariosController#new as HTML
+  Parameters: {"id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering horarios/new.html.erb within layouts/application
+  Rendered horarios/new.html.erb within layouts/application (Duration: 2.4ms | Allocations: 4313)
+  Rendered layouts/_header.html.erb (Duration: 0.5ms | Allocations: 406)
+  Rendered layout layouts/application.html.erb (Duration: 5.1ms | Allocations: 7213)
+Completed 200 OK in 7ms (Views: 6.2ms | ActiveRecord: 0.0ms | Allocations: 8152)
+
+
+Started GET "/sucursales/1/horarios/new" for 127.0.0.1 at 2022-12-01 17:30:59 -0300
+Processing by HorariosController#new as HTML
+  Parameters: {"id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering horarios/new.html.erb within layouts/application
+  Rendered horarios/new.html.erb within layouts/application (Duration: 7.9ms | Allocations: 3882)
+  Rendered layout layouts/application.html.erb (Duration: 8.1ms | Allocations: 3949)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms | Allocations: 4864)
+
+
+  
+ActionView::Template::Error (undefined method `horarios_path' for #<ActionView::Base:0x00000000025e40>
+Did you mean?  horario_path):
+    1: <h2>Agregar un nuevo horario para la sucursal numero <%= @sucursal_id %></h2>
+    2: 
+    3: 
+    4: <%= form_with model: @horario do |form| %>
+    5: 
+    6:     <div>
+    7:         <%= form.label :Dia %>
+  
+app/views/horarios/new.html.erb:4
+Started GET "/sucursales/1/horarios/new" for 127.0.0.1 at 2022-12-01 17:34:09 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/sucursales/1/horarios/new"):
+  
+Started GET "/" for 127.0.0.1 at 2022-12-01 17:36:34 -0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.1ms | Allocations: 404)
+  Rendered layouts/_header.html.erb (Duration: 0.7ms | Allocations: 373)
+  Rendered layout layouts/application.html.erb (Duration: 9.6ms | Allocations: 14690)
+Completed 200 OK in 12ms (Views: 10.3ms | ActiveRecord: 0.0ms | Allocations: 18312)
+
+
+Started GET "/users/" for 127.0.0.1 at 2022-12-01 17:36:36 -0300
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT `usuarios`.* FROM `usuarios`[0m
+  ↳ app/views/users/index.html.erb:11
+  Rendered users/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 891)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 150)
+  Rendered layout layouts/application.html.erb (Duration: 4.0ms | Allocations: 3413)
+Completed 200 OK in 5ms (Views: 4.4ms | ActiveRecord: 0.3ms | Allocations: 4264)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2022-12-01 17:36:37 -0300
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 3.6ms | Allocations: 6419)
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 150)
+  Rendered layout layouts/application.html.erb (Duration: 5.8ms | Allocations: 8808)
+Completed 200 OK in 30ms (Views: 6.2ms | ActiveRecord: 2.5ms | Allocations: 25021)
+
+
+Started POST "/users/new" for 127.0.0.1 at 2022-12-01 17:36:50 -0300
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nombre"=>"nombre", "email"=>"aa@aa", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "role"=>"Administrador", "commit"=>"Save "}
+Completed 400 Bad Request in 2ms (ActiveRecord: 0.0ms | Allocations: 739)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: usuario):
+  
+app/controllers/users_controller.rb:47:in `usuario_params'
+app/controllers/users_controller.rb:15:in `create'
+Started GET "/users/new" for 127.0.0.1 at 2022-12-01 17:36:50 -0300
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 2.1ms | Allocations: 5362)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 145)
+  Rendered layout layouts/application.html.erb (Duration: 4.2ms | Allocations: 7738)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.0ms | Allocations: 8004)
+
+
+Started POST "/users/new" for 127.0.0.1 at 2022-12-01 18:19:04 -0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nombre"=>"admin", "email"=>"admin@admin", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "role"=>"Administrador", "commit"=>"Save "}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUsuario Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM `usuarios` WHERE `usuarios`.`email` = BINARY 'admin@admin' LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUsuario Create (1.8ms)[0m  [1m[32mINSERT INTO `usuarios` (`nombre`, `encrypted_password`, `email`, `role`, `reset_password_token`, `reset_password_sent_at`, `remember_created_at`, `created_at`, `updated_at`) VALUES ('admin', '$2a$12$MUGzyk2iUdw5w/6ks1ufc.8d8h9E7wjhnguCntdr4WfKq5i5LVy4e', 'admin@admin', 'Administrador', NULL, NULL, NULL, '2022-12-01 21:19:04.344162', '2022-12-01 21:19:04.344162')[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mTRANSACTION (8.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+Redirected to http://127.0.0.1:3000/users
+Completed 302 Found in 233ms (ActiveRecord: 12.6ms | Allocations: 30065)
+
+
+Started GET "/users" for 127.0.0.1 at 2022-12-01 18:19:04 -0300
+Processing by UsersController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT `usuarios`.* FROM `usuarios`[0m
+  ↳ app/views/users/index.html.erb:11
+  Rendered users/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1251)
+  Rendered layouts/_header.html.erb (Duration: 1.2ms | Allocations: 442)
+  Rendered layout layouts/application.html.erb (Duration: 30.1ms | Allocations: 36352)
+Completed 200 OK in 33ms (Views: 31.1ms | ActiveRecord: 0.2ms | Allocations: 38984)
+
+
+Started GET "/users/1/edit" for 127.0.0.1 at 2022-12-01 18:19:27 -0300
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUsuario Load (0.7ms)[0m  [1m[34mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:24:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/edit.html.erb within layouts/application (Duration: 8.8ms | Allocations: 5089)
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 151)
+  Rendered layout layouts/application.html.erb (Duration: 11.7ms | Allocations: 7460)
+Completed 200 OK in 17ms (Views: 12.6ms | ActiveRecord: 0.7ms | Allocations: 8833)
+
+
+Started PATCH "/users/1" for 127.0.0.1 at 2022-12-01 18:19:30 -0300
+Processing by UsersController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "usuario"=>{"nombre"=>"admin", "email"=>"admin@admin", "role"=>"Personal Bancario"}, "commit"=>"Update Usuario", "id"=>"1"}
+  [1m[36mUsuario Load (0.5ms)[0m  [1m[34mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:28:in `update'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:29:in `update'
+  [1m[36mUsuario Update (0.6ms)[0m  [1m[33mUPDATE `usuarios` SET `usuarios`.`role` = 'Personal Bancario', `usuarios`.`updated_at` = '2022-12-01 21:19:30.856438' WHERE `usuarios`.`id` = 1[0m
+  ↳ app/controllers/users_controller.rb:29:in `update'
+  [1m[36mTRANSACTION (6.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:29:in `update'
+Redirected to http://127.0.0.1:3000/users/1
+Completed 302 Found in 17ms (ActiveRecord: 8.1ms | Allocations: 2741)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2022-12-01 18:19:30 -0300
+Processing by UsersController#show as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.0ms | Allocations: 115)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 163)
+  Rendered layout layouts/application.html.erb (Duration: 3.2ms | Allocations: 2661)
+Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 0.3ms | Allocations: 3438)
+
+
+Started GET "/" for 127.0.0.1 at 2022-12-01 18:19:35 -0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 387)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 117)
+  Rendered layout layouts/application.html.erb (Duration: 3.0ms | Allocations: 2749)
+Completed 200 OK in 4ms (Views: 3.8ms | ActiveRecord: 0.0ms | Allocations: 3497)
+
+
+Started GET "/users/" for 127.0.0.1 at 2022-12-01 18:19:37 -0300
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUsuario Load (0.4ms)[0m  [1m[34mSELECT `usuarios`.* FROM `usuarios`[0m
+  ↳ app/views/users/index.html.erb:11
+  Rendered users/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 677)
+  Rendered layouts/_header.html.erb (Duration: 0.4ms | Allocations: 150)
+  Rendered layout layouts/application.html.erb (Duration: 7.6ms | Allocations: 3205)
+Completed 200 OK in 9ms (Views: 7.8ms | ActiveRecord: 0.4ms | Allocations: 3465)
+
+
+Started GET "/users/1/edit" for 127.0.0.1 at 2022-12-01 18:19:41 -0300
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUsuario Load (0.6ms)[0m  [1m[34mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:24:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/edit.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1415)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 145)
+  Rendered layout layouts/application.html.erb (Duration: 6.8ms | Allocations: 3770)
+Completed 200 OK in 11ms (Views: 7.2ms | ActiveRecord: 0.6ms | Allocations: 4502)
+
+
+Started PATCH "/users/1" for 127.0.0.1 at 2022-12-01 18:19:43 -0300
+Processing by UsersController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "usuario"=>{"nombre"=>"admin", "email"=>"admin@admin", "role"=>"Administrador"}, "commit"=>"Update Usuario", "id"=>"1"}
+  [1m[36mUsuario Load (0.6ms)[0m  [1m[34mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:28:in `update'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:29:in `update'
+  [1m[36mUsuario Update (0.5ms)[0m  [1m[33mUPDATE `usuarios` SET `usuarios`.`role` = 'Administrador', `usuarios`.`updated_at` = '2022-12-01 21:19:43.329097' WHERE `usuarios`.`id` = 1[0m
+  ↳ app/controllers/users_controller.rb:29:in `update'
+  [1m[36mTRANSACTION (7.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:29:in `update'
+Redirected to http://127.0.0.1:3000/users/1
+Completed 302 Found in 23ms (ActiveRecord: 9.2ms | Allocations: 2697)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2022-12-01 18:19:43 -0300
+Processing by UsersController#show as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[36mUsuario Load (0.4ms)[0m  [1m[34mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.0ms | Allocations: 9)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 154)
+  Rendered layout layouts/application.html.erb (Duration: 4.9ms | Allocations: 2531)
+Completed 200 OK in 8ms (Views: 5.2ms | ActiveRecord: 0.4ms | Allocations: 3253)
+
+
+Started GET "/" for 127.0.0.1 at 2022-12-01 18:19:47 -0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.1ms | Allocations: 223)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 109)
+  Rendered layout layouts/application.html.erb (Duration: 7.1ms | Allocations: 2549)
+Completed 200 OK in 8ms (Views: 7.4ms | ActiveRecord: 0.0ms | Allocations: 2794)
+
+
+Started GET "/sucursales/" for 127.0.0.1 at 2022-12-01 18:19:48 -0300
+Processing by SucursalesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sucursales/index.html.erb within layouts/application
+  [1m[36mSucursal Load (0.3ms)[0m  [1m[34mSELECT `sucursals`.* FROM `sucursals`[0m
+  ↳ app/views/sucursales/index.html.erb:12
+  Rendered sucursales/index.html.erb within layouts/application (Duration: 9.1ms | Allocations: 14741)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 150)
+  Rendered layout layouts/application.html.erb (Duration: 12.1ms | Allocations: 17265)
+Completed 200 OK in 14ms (Views: 11.7ms | ActiveRecord: 1.7ms | Allocations: 18248)
+
+
+Started GET "/users/" for 127.0.0.1 at 2022-12-01 18:19:50 -0300
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUsuario Load (0.7ms)[0m  [1m[34mSELECT `usuarios`.* FROM `usuarios`[0m
+  ↳ app/views/users/index.html.erb:11
+  Rendered users/index.html.erb within layouts/application (Duration: 3.4ms | Allocations: 677)
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 150)
+  Rendered layout layouts/application.html.erb (Duration: 23.8ms | Allocations: 3225)
+Completed 200 OK in 25ms (Views: 23.7ms | ActiveRecord: 0.7ms | Allocations: 3486)
+
+
+Started GET "/usuarios/sign_in" for 127.0.0.1 at 2022-12-01 18:23:09 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.9ms | Allocations: 592)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 5.3ms | Allocations: 3354)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 127)
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | Allocations: 5711)
+Completed 200 OK in 10ms (Views: 8.3ms | ActiveRecord: 0.0ms | Allocations: 7339)
+
+
+Started POST "/usuarios/sign_in" for 127.0.0.1 at 2022-12-01 18:23:13 -0300
+Processing by Devise::SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "usuario"=>{"email"=>"admin@admin", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUsuario Load (0.4ms)[0m  [1m[34mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`email` = 'admin@admin' ORDER BY `usuarios`.`id` ASC LIMIT 1[0m
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 216ms (ActiveRecord: 0.4ms | Allocations: 3552)
+
+
+Started GET "/" for 127.0.0.1 at 2022-12-01 18:23:13 -0300
+Processing by HomeController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 1 ORDER BY `usuarios`.`id` ASC LIMIT 1[0m
+  ↳ app/views/home/index.html.erb:1
+  Rendered home/index.html.erb within layouts/application (Duration: 1.6ms | Allocations: 910)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 71)
+  Rendered layout layouts/application.html.erb (Duration: 3.5ms | Allocations: 3219)
+Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.3ms | Allocations: 3469)
+
+
+Started GET "/turnos/" for 127.0.0.1 at 2022-12-01 18:27:37 -0300
+Processing by TurnosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering turnos/index.html.erb within layouts/application
+  [1m[36mTurno Load (0.3ms)[0m  [1m[34mSELECT `turnos`.* FROM `turnos`[0m
+  ↳ app/views/turnos/index.html.erb:11
+  Rendered turnos/index.html.erb within layouts/application (Duration: 9.1ms | Allocations: 15465)
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 1 ORDER BY `usuarios`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/_header.html.erb:2
+  Rendered layouts/_header.html.erb (Duration: 1.4ms | Allocations: 788)
+  Rendered layout layouts/application.html.erb (Duration: 12.7ms | Allocations: 18637)
+Completed 200 OK in 14ms (Views: 11.0ms | ActiveRecord: 2.4ms | Allocations: 19615)
+
+
+Started GET "/turnos" for 127.0.0.1 at 2022-12-01 18:30:03 -0300
+Processing by TurnosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering turnos/index.html.erb within layouts/application
+  [1m[36mTurno Load (0.9ms)[0m  [1m[34mSELECT `turnos`.* FROM `turnos`[0m
+  ↳ app/views/turnos/index.html.erb:11
+  Rendered turnos/index.html.erb within layouts/application (Duration: 4.3ms | Allocations: 987)
+  [1m[36mUsuario Load (0.4ms)[0m  [1m[34mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 1 ORDER BY `usuarios`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/_header.html.erb:2
+  Rendered layouts/_header.html.erb (Duration: 2.6ms | Allocations: 1045)
+  Rendered layout layouts/application.html.erb (Duration: 11.0ms | Allocations: 4702)
+Completed 200 OK in 13ms (Views: 11.2ms | ActiveRecord: 1.4ms | Allocations: 5627)
+
+
+Started GET "/turnos/1" for 127.0.0.1 at 2022-12-01 18:30:07 -0300
+Processing by TurnosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTurno Load (0.3ms)[0m  [1m[34mSELECT `turnos`.* FROM `turnos` WHERE `turnos`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/turnos_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering turnos/show.html.erb within layouts/application
+  Rendered turnos/show.html.erb within layouts/application (Duration: 0.5ms | Allocations: 170)
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 1 ORDER BY `usuarios`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/_header.html.erb:2
+  Rendered layouts/_header.html.erb (Duration: 1.3ms | Allocations: 801)
+  Rendered layout layouts/application.html.erb (Duration: 3.5ms | Allocations: 3363)
+Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 0.4ms | Allocations: 4701)
+
+
+Started GET "/turnos" for 127.0.0.1 at 2022-12-01 18:30:32 -0300
+Processing by TurnosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering turnos/index.html.erb within layouts/application
+  [1m[36mTurno Load (0.4ms)[0m  [1m[34mSELECT `turnos`.* FROM `turnos`[0m
+  ↳ app/views/turnos/index.html.erb:15
+  Rendered turnos/index.html.erb within layouts/application (Duration: 3.9ms | Allocations: 995)
+  [1m[36mUsuario Load (0.4ms)[0m  [1m[34mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 1 ORDER BY `usuarios`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/_header.html.erb:2
+  Rendered layouts/_header.html.erb (Duration: 2.4ms | Allocations: 1044)
+  Rendered layout layouts/application.html.erb (Duration: 12.5ms | Allocations: 4702)
+Completed 200 OK in 15ms (Views: 13.1ms | ActiveRecord: 0.8ms | Allocations: 5627)
+
+
+Started GET "/turnos" for 127.0.0.1 at 2022-12-01 18:30:46 -0300
+Processing by TurnosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering turnos/index.html.erb within layouts/application
+  [1m[36mTurno Load (0.7ms)[0m  [1m[34mSELECT `turnos`.* FROM `turnos`[0m
+  ↳ app/views/turnos/index.html.erb:15
+  Rendered turnos/index.html.erb within layouts/application (Duration: 4.8ms | Allocations: 1041)
+  [1m[36mUsuario Load (0.4ms)[0m  [1m[34mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 1 ORDER BY `usuarios`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/_header.html.erb:2
+  Rendered layouts/_header.html.erb (Duration: 2.5ms | Allocations: 1045)
+  Rendered layout layouts/application.html.erb (Duration: 12.3ms | Allocations: 4745)
+Completed 200 OK in 14ms (Views: 12.6ms | ActiveRecord: 1.1ms | Allocations: 5672)
+
+
+Started GET "/turnos" for 127.0.0.1 at 2022-12-01 18:30:59 -0300
+Processing by TurnosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering turnos/index.html.erb within layouts/application
+  [1m[36mTurno Load (0.3ms)[0m  [1m[34mSELECT `turnos`.* FROM `turnos`[0m
+  ↳ app/views/turnos/index.html.erb:15
+  Rendered turnos/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 957)
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 1 ORDER BY `usuarios`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/_header.html.erb:2
+  Rendered layouts/_header.html.erb (Duration: 1.8ms | Allocations: 1044)
+  Rendered layout layouts/application.html.erb (Duration: 6.9ms | Allocations: 4660)
+Completed 200 OK in 10ms (Views: 8.3ms | ActiveRecord: 0.6ms | Allocations: 5585)
+
+
+Started GET "/turnos" for 127.0.0.1 at 2022-12-01 18:34:05 -0300
+Processing by TurnosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering turnos/index.html.erb within layouts/application
+  [1m[36mTurno Load (0.2ms)[0m  [1m[34mSELECT `turnos`.* FROM `turnos`[0m
+  ↳ app/views/turnos/index.html.erb:11
+  Rendered turnos/index.html.erb within layouts/application (Duration: 5.8ms | Allocations: 2834)
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 1 ORDER BY `usuarios`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/_header.html.erb:2
+  Rendered layouts/_header.html.erb (Duration: 7.6ms | Allocations: 4037)
+  Rendered layout layouts/application.html.erb (Duration: 21.0ms | Allocations: 20946)
+Completed 200 OK in 24ms (Views: 17.2ms | ActiveRecord: 4.6ms | Allocations: 24974)
+
+
+Started GET "/turnos/new" for 127.0.0.1 at 2022-12-01 18:34:09 -0300
+Processing by TurnosController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering turnos/new.html.erb within layouts/application
+  Rendered turnos/new.html.erb within layouts/application (Duration: 2.7ms | Allocations: 2358)
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 1 ORDER BY `usuarios`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/_header.html.erb:2
+  Rendered layouts/_header.html.erb (Duration: 1.5ms | Allocations: 789)
+  Rendered layout layouts/application.html.erb (Duration: 6.1ms | Allocations: 5371)
+Completed 200 OK in 7ms (Views: 6.1ms | ActiveRecord: 0.2ms | Allocations: 5687)
+
+
+Started POST "/turnos" for 127.0.0.1 at 2022-12-01 18:34:25 -0300
+Processing by TurnosController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "turno"=>{"fecha"=>"1231-12-16", "hora"=>"16:15", "motivo"=>"motivo", "estado"=>"1"}, "commit"=>"Create Turno"}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/turnos_controller.rb:16:in `create'
+  [1m[36mTurno Create (0.3ms)[0m  [1m[32mINSERT INTO `turnos` (`fecha`, `hora`, `motivo`, `estado`, `created_at`, `updated_at`) VALUES ('1231-12-16', '16:15:00', 'motivo', TRUE, '2022-12-01 21:34:25.656728', '2022-12-01 21:34:25.656728')[0m
+  ↳ app/controllers/turnos_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (35.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/turnos_controller.rb:16:in `create'
+Redirected to http://127.0.0.1:3000/turnos
+Completed 302 Found in 43ms (ActiveRecord: 35.9ms | Allocations: 2302)
+
+
+Started GET "/turnos" for 127.0.0.1 at 2022-12-01 18:34:25 -0300
+Processing by TurnosController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering turnos/index.html.erb within layouts/application
+  [1m[36mTurno Load (0.4ms)[0m  [1m[34mSELECT `turnos`.* FROM `turnos`[0m
+  ↳ app/views/turnos/index.html.erb:11
+  Rendered turnos/index.html.erb within layouts/application (Duration: 3.7ms | Allocations: 757)
+  [1m[36mUsuario Load (0.3ms)[0m  [1m[34mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 1 ORDER BY `usuarios`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/_header.html.erb:2
+  Rendered layouts/_header.html.erb (Duration: 1.5ms | Allocations: 784)
+  Rendered layout layouts/application.html.erb (Duration: 8.5ms | Allocations: 3998)
+Completed 200 OK in 10ms (Views: 8.7ms | ActiveRecord: 0.7ms | Allocations: 4308)
+
+
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.9ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (89.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS `ruby_integrador`[0m
+  [1m[35m (9.4ms)[0m  [1m[35mCREATE DATABASE `ruby_integrador` DEFAULT CHARACTER SET `utf8mb4`[0m
+  [1m[35m (38.1ms)[0m  [1m[35mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL PRIMARY KEY)[0m
+  [1m[35m (39.1ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) NOT NULL PRIMARY KEY, `value` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('3505677771255895935', 0)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to DeviseCreateUsuarios (20221122223434)
+  [1m[35m (50.4ms)[0m  [1m[35mCREATE TABLE `usuarios` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `nombre` varchar(255) DEFAULT '' NOT NULL, `encrypted_password` varchar(255) DEFAULT '' NOT NULL, `email` varchar(255) DEFAULT '' NOT NULL, `role` varchar(255) DEFAULT 'cliente' NOT NULL, `reset_password_token` varchar(255), `reset_password_sent_at` datetime(6), `remember_created_at` datetime(6), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (36.2ms)[0m  [1m[35mCREATE UNIQUE INDEX `index_usuarios_on_nombre` ON `usuarios` (`nombre`)[0m
+  [1m[35m (28.2ms)[0m  [1m[35mCREATE UNIQUE INDEX `index_usuarios_on_reset_password_token` ON `usuarios` (`reset_password_token`)[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20221122223434')[0m
+  [1m[36mTRANSACTION (5.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateTurnos (20221129181243)
+  [1m[35m (43.5ms)[0m  [1m[35mCREATE TABLE `turnos` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `fecha` date, `hora` time, `motivo` varchar(255), `estado` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20221129181243')[0m
+  [1m[36mTRANSACTION (5.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateSucursals (20221129221441)
+  [1m[35m (39.3ms)[0m  [1m[35mCREATE TABLE `sucursals` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `nombre` varchar(255) NOT NULL, `direccion` varchar(255), `telefono` int, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20221129221441')[0m
+  [1m[36mTRANSACTION (7.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateHorarios (20221129221843)
+  [1m[35m (76.3ms)[0m  [1m[35mCREATE TABLE `horarios` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `sucursal_id` bigint NOT NULL, `dia` varchar(255) NOT NULL, `hora_inicio` time, `hora_fin` time, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, INDEX `index_horarios_on_sucursal_id` (`sucursal_id`))[0m
+  [1m[35m (70.0ms)[0m  [1m[35mCREATE UNIQUE INDEX `index_horarios_on_sucursal_id_and_dia` ON `horarios` (`sucursal_id`, `dia`)[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20221129221843')[0m
+  [1m[36mTRANSACTION (15.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.1ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('environment', 'development', '2022-12-01 21:39:39.226236', '2022-12-01 21:39:39.226236')[0m
+  [1m[36mTRANSACTION (7.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT RELEASE_LOCK('3505677771255895935')[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (84.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS `ruby_integrador`[0m
+  [1m[35m (9.4ms)[0m  [1m[35mCREATE DATABASE `ruby_integrador` DEFAULT CHARACTER SET `utf8mb4`[0m
+  [1m[35m (36.6ms)[0m  [1m[35mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL PRIMARY KEY)[0m
+  [1m[35m (41.0ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) NOT NULL PRIMARY KEY, `value` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('3505677771255895935', 0)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to DeviseCreateUsuarios (20221122223434)
+  [1m[35m (43.9ms)[0m  [1m[35mCREATE TABLE `usuarios` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `nombre` varchar(255) DEFAULT '' NOT NULL, `encrypted_password` varchar(255) DEFAULT '' NOT NULL, `email` varchar(255) DEFAULT '' NOT NULL, `role` varchar(255) DEFAULT 'Cliente' NOT NULL, `reset_password_token` varchar(255), `reset_password_sent_at` datetime(6), `remember_created_at` datetime(6), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (30.9ms)[0m  [1m[35mCREATE UNIQUE INDEX `index_usuarios_on_nombre` ON `usuarios` (`nombre`)[0m
+  [1m[35m (28.1ms)[0m  [1m[35mCREATE UNIQUE INDEX `index_usuarios_on_reset_password_token` ON `usuarios` (`reset_password_token`)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20221122223434')[0m
+  [1m[36mTRANSACTION (8.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateTurnos (20221129181243)
+  [1m[35m (36.1ms)[0m  [1m[35mCREATE TABLE `turnos` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `fecha` date, `hora` time, `motivo` varchar(255), `estado` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20221129181243')[0m
+  [1m[36mTRANSACTION (9.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateSucursals (20221129221441)
+  [1m[35m (121.8ms)[0m  [1m[35mCREATE TABLE `sucursals` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `nombre` varchar(255) NOT NULL, `direccion` varchar(255), `telefono` int, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20221129221441')[0m
+  [1m[36mTRANSACTION (14.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateHorarios (20221129221843)
+  [1m[35m (82.1ms)[0m  [1m[35mCREATE TABLE `horarios` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `sucursal_id` bigint NOT NULL, `dia` varchar(255) NOT NULL, `hora_inicio` time, `hora_fin` time, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, INDEX `index_horarios_on_sucursal_id` (`sucursal_id`))[0m
+  [1m[35m (50.4ms)[0m  [1m[35mCREATE UNIQUE INDEX `index_horarios_on_sucursal_id_and_dia` ON `horarios` (`sucursal_id`, `dia`)[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20221129221843')[0m
+  [1m[36mTRANSACTION (7.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('environment', 'development', '2022-12-01 22:01:22.515984', '2022-12-01 22:01:22.515984')[0m
+  [1m[36mTRANSACTION (6.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT RELEASE_LOCK('3505677771255895935')[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUsuario Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM `usuarios` WHERE `usuarios`.`email` = BINARY 'admin@admin' LIMIT 1[0m
+  [1m[36mUsuario Create (0.4ms)[0m  [1m[32mINSERT INTO `usuarios` (`nombre`, `encrypted_password`, `email`, `role`, `reset_password_token`, `reset_password_sent_at`, `remember_created_at`, `created_at`, `updated_at`) VALUES ('Administrador principal', '$2a$12$2d3Ud.vr/Dz3aj.0QXVax.xt7ujbUphKOQ1c2TT6mz5q8DHpUHNWu', 'admin@admin', 'Admin', NULL, NULL, NULL, '2022-12-01 22:01:29.004829', '2022-12-01 22:01:29.004829')[0m
+  [1m[36mTRANSACTION (7.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUsuario Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM `usuarios` WHERE `usuarios`.`email` = BINARY 'personal@personal' LIMIT 1[0m
+  [1m[36mUsuario Create (0.3ms)[0m  [1m[32mINSERT INTO `usuarios` (`nombre`, `encrypted_password`, `email`, `role`, `reset_password_token`, `reset_password_sent_at`, `remember_created_at`, `created_at`, `updated_at`) VALUES ('Personal bancario', '$2a$12$rdN06TuUDmkHtNRpyeh6Yek1MD3vExt8DgA7ctiSQcZ5hCWrSmZ2G', 'personal@personal', 'Personal Bancario', NULL, NULL, NULL, '2022-12-01 22:01:29.219925', '2022-12-01 22:01:29.219925')[0m
+  [1m[36mTRANSACTION (6.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUsuario Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM `usuarios` WHERE `usuarios`.`email` = BINARY 'cliente@cliente' LIMIT 1[0m
+  [1m[36mUsuario Create (0.3ms)[0m  [1m[32mINSERT INTO `usuarios` (`nombre`, `encrypted_password`, `email`, `role`, `reset_password_token`, `reset_password_sent_at`, `remember_created_at`, `created_at`, `updated_at`) VALUES ('Cliente', '$2a$12$3OPTDxHn3HQPoN9AxYCjGuCwr2w6OfKlmjj5pn5Mhbu0Z9b6ajs7S', 'cliente@cliente', 'Cliente', NULL, NULL, NULL, '2022-12-01 22:01:29.433088', '2022-12-01 22:01:29.433088')[0m
+  [1m[36mTRANSACTION (7.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUsuario Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM `usuarios` WHERE `usuarios`.`email` = BINARY 'clienteb@cliente' LIMIT 1[0m
+  [1m[36mUsuario Create (0.3ms)[0m  [1m[32mINSERT INTO `usuarios` (`nombre`, `encrypted_password`, `email`, `role`, `reset_password_token`, `reset_password_sent_at`, `remember_created_at`, `created_at`, `updated_at`) VALUES ('ClienteB', '$2a$12$DY0NrI6RUeWziKAUzkY/peRCVcKIo7ZWlVqhtWRYKWCPEfVU65Jzy', 'clienteb@cliente', 'Cliente', NULL, NULL, NULL, '2022-12-01 22:01:29.647445', '2022-12-01 22:01:29.647445')[0m
+  [1m[36mTRANSACTION (7.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUsuario Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM `usuarios` WHERE `usuarios`.`email` = BINARY 'clientec@cliente' LIMIT 1[0m
+  [1m[36mUsuario Create (0.2ms)[0m  [1m[32mINSERT INTO `usuarios` (`nombre`, `encrypted_password`, `email`, `role`, `reset_password_token`, `reset_password_sent_at`, `remember_created_at`, `created_at`, `updated_at`) VALUES ('ClienteC', '$2a$12$Tn0rvlVdFPIj9rhyen/bR./oEumabiXrTxDBfI7M40vIxhS7wZkiu', 'clientec@cliente', 'Cliente', NULL, NULL, NULL, '2022-12-01 22:01:29.863546', '2022-12-01 22:01:29.863546')[0m
+  [1m[36mTRANSACTION (5.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUsuario Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM `usuarios` WHERE `usuarios`.`email` = BINARY 'cliented@cliente' LIMIT 1[0m
+  [1m[36mUsuario Create (0.4ms)[0m  [1m[32mINSERT INTO `usuarios` (`nombre`, `encrypted_password`, `email`, `role`, `reset_password_token`, `reset_password_sent_at`, `remember_created_at`, `created_at`, `updated_at`) VALUES ('ClienteD', '$2a$12$BOxiSKG/72WDnprVtZJFpOEOVF35RgLYu/S4TzkbjOJP2Qm2p7.Pq', 'cliented@cliente', 'Cliente', NULL, NULL, NULL, '2022-12-01 22:01:30.076460', '2022-12-01 22:01:30.076460')[0m
+  [1m[36mTRANSACTION (6.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUsuario Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM `usuarios` WHERE `usuarios`.`email` = BINARY 'clientee@cliente' LIMIT 1[0m
+  [1m[36mUsuario Create (0.3ms)[0m  [1m[32mINSERT INTO `usuarios` (`nombre`, `encrypted_password`, `email`, `role`, `reset_password_token`, `reset_password_sent_at`, `remember_created_at`, `created_at`, `updated_at`) VALUES ('ClienteE', '$2a$12$Piy6GO0O9Nf8WVrzxilxbuQ/3WV0vMVDMdIBSMVAeeNCDzIe/mzqK', 'clientee@cliente', 'Cliente', NULL, NULL, NULL, '2022-12-01 22:01:30.290510', '2022-12-01 22:01:30.290510')[0m
+  [1m[36mTRANSACTION (6.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSucursal Create (0.3ms)[0m  [1m[32mINSERT INTO `sucursals` (`nombre`, `direccion`, `telefono`, `created_at`, `updated_at`) VALUES ('La Plata', '7 y 50', 221123456, '2022-12-01 22:01:30.304526', '2022-12-01 22:01:30.304526')[0m
+  [1m[36mTRANSACTION (5.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSucursal Create (0.2ms)[0m  [1m[32mINSERT INTO `sucursals` (`nombre`, `direccion`, `telefono`, `created_at`, `updated_at`) VALUES ('Villa Gesell', '124 y 3', 36589, '2022-12-01 22:01:30.312029', '2022-12-01 22:01:30.312029')[0m
+  [1m[36mTRANSACTION (5.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSucursal Create (0.2ms)[0m  [1m[32mINSERT INTO `sucursals` (`nombre`, `direccion`, `telefono`, `created_at`, `updated_at`) VALUES ('Lanus', 'La valle y alcorta', 75436, '2022-12-01 22:01:30.319841', '2022-12-01 22:01:30.319841')[0m
+  [1m[36mTRANSACTION (5.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSucursal Create (0.2ms)[0m  [1m[32mINSERT INTO `sucursals` (`nombre`, `direccion`, `telefono`, `created_at`, `updated_at`) VALUES ('Villa Elisa', '489 y 13', 36542, '2022-12-01 22:01:30.327466', '2022-12-01 22:01:30.327466')[0m
+  [1m[36mTRANSACTION (7.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mSucursal Create (0.3ms)[0m  [1m[32mINSERT INTO `sucursals` (`nombre`, `direccion`, `telefono`, `created_at`, `updated_at`) VALUES ('Gonnet', '511 y centenario', 785236, '2022-12-01 22:01:30.336566', '2022-12-01 22:01:30.336566')[0m
+  [1m[36mTRANSACTION (7.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mHorario Create (0.4ms)[0m  [1m[32mINSERT INTO `horarios` (`sucursal_id`, `dia`, `hora_inicio`, `hora_fin`, `created_at`, `updated_at`) VALUES (1, 'Lunes', '09:00:00', '16:00:00', '2022-12-01 22:01:30.363707', '2022-12-01 22:01:30.363707')[0m
+  [1m[36mTRANSACTION (5.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mHorario Create (0.2ms)[0m  [1m[32mINSERT INTO `horarios` (`sucursal_id`, `dia`, `hora_inicio`, `hora_fin`, `created_at`, `updated_at`) VALUES (1, 'Martes', '10:00:00', '17:00:00', '2022-12-01 22:01:30.372490', '2022-12-01 22:01:30.372490')[0m
+  [1m[36mTRANSACTION (7.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mHorario Create (0.2ms)[0m  [1m[32mINSERT INTO `horarios` (`sucursal_id`, `dia`, `hora_inicio`, `hora_fin`, `created_at`, `updated_at`) VALUES (1, 'Miercoles', '09:00:00', '16:00:00', '2022-12-01 22:01:30.382161', '2022-12-01 22:01:30.382161')[0m
+  [1m[36mTRANSACTION (7.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mHorario Create (0.5ms)[0m  [1m[32mINSERT INTO `horarios` (`sucursal_id`, `dia`, `hora_inicio`, `hora_fin`, `created_at`, `updated_at`) VALUES (1, 'Jueves', '10:00:00', '17:00:00', '2022-12-01 22:01:30.391954', '2022-12-01 22:01:30.391954')[0m
+  [1m[36mTRANSACTION (7.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mHorario Create (0.5ms)[0m  [1m[32mINSERT INTO `horarios` (`sucursal_id`, `dia`, `hora_inicio`, `hora_fin`, `created_at`, `updated_at`) VALUES (1, 'Viernes', '09:00:00', '16:00:00', '2022-12-01 22:01:30.403853', '2022-12-01 22:01:30.403853')[0m
+  [1m[36mTRANSACTION (7.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mHorario Create (0.3ms)[0m  [1m[32mINSERT INTO `horarios` (`sucursal_id`, `dia`, `hora_inicio`, `hora_fin`, `created_at`, `updated_at`) VALUES (2, 'Lunes', '11:00:00', '19:00:00', '2022-12-01 22:01:30.416489', '2022-12-01 22:01:30.416489')[0m
+  [1m[36mTRANSACTION (5.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mHorario Create (0.2ms)[0m  [1m[32mINSERT INTO `horarios` (`sucursal_id`, `dia`, `hora_inicio`, `hora_fin`, `created_at`, `updated_at`) VALUES (2, 'Martes', '10:00:00', '17:00:00', '2022-12-01 22:01:30.427634', '2022-12-01 22:01:30.427634')[0m
+  [1m[36mTRANSACTION (5.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mHorario Create (0.2ms)[0m  [1m[32mINSERT INTO `horarios` (`sucursal_id`, `dia`, `hora_inicio`, `hora_fin`, `created_at`, `updated_at`) VALUES (2, 'Miercoles', '07:00:00', '12:00:00', '2022-12-01 22:01:30.435742', '2022-12-01 22:01:30.435742')[0m
+  [1m[36mTRANSACTION (7.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mHorario Create (0.4ms)[0m  [1m[32mINSERT INTO `horarios` (`sucursal_id`, `dia`, `hora_inicio`, `hora_fin`, `created_at`, `updated_at`) VALUES (2, 'Jueves', '10:00:00', '17:00:00', '2022-12-01 22:01:30.445443', '2022-12-01 22:01:30.445443')[0m
+  [1m[36mTRANSACTION (7.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mHorario Create (0.2ms)[0m  [1m[32mINSERT INTO `horarios` (`sucursal_id`, `dia`, `hora_inicio`, `hora_fin`, `created_at`, `updated_at`) VALUES (2, 'Viernes', '09:00:00', '16:00:00', '2022-12-01 22:01:30.457076', '2022-12-01 22:01:30.457076')[0m
+  [1m[36mTRANSACTION (6.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mHorario Create (0.3ms)[0m  [1m[32mINSERT INTO `horarios` (`sucursal_id`, `dia`, `hora_inicio`, `hora_fin`, `created_at`, `updated_at`) VALUES (3, 'Lunes', '16:00:00', '20:00:00', '2022-12-01 22:01:30.468002', '2022-12-01 22:01:30.468002')[0m
+  [1m[36mTRANSACTION (6.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mHorario Create (0.3ms)[0m  [1m[32mINSERT INTO `horarios` (`sucursal_id`, `dia`, `hora_inicio`, `hora_fin`, `created_at`, `updated_at`) VALUES (3, 'Martes', '11:00:00', '17:00:00', '2022-12-01 22:01:30.478903', '2022-12-01 22:01:30.478903')[0m
+  [1m[36mTRANSACTION (7.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mHorario Create (0.2ms)[0m  [1m[32mINSERT INTO `horarios` (`sucursal_id`, `dia`, `hora_inicio`, `hora_fin`, `created_at`, `updated_at`) VALUES (3, 'Miercoles', '06:00:00', '16:00:00', '2022-12-01 22:01:30.490257', '2022-12-01 22:01:30.490257')[0m
+  [1m[36mTRANSACTION (6.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mHorario Create (0.1ms)[0m  [1m[32mINSERT INTO `horarios` (`sucursal_id`, `dia`, `hora_inicio`, `hora_fin`, `created_at`, `updated_at`) VALUES (3, 'Jueves', '19:00:00', '20:00:00', '2022-12-01 22:01:30.498192', '2022-12-01 22:01:30.498192')[0m
+  [1m[36mTRANSACTION (7.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mHorario Create (0.5ms)[0m  [1m[32mINSERT INTO `horarios` (`sucursal_id`, `dia`, `hora_inicio`, `hora_fin`, `created_at`, `updated_at`) VALUES (3, 'Viernes', '11:00:00', '16:00:00', '2022-12-01 22:01:30.508202', '2022-12-01 22:01:30.508202')[0m
+  [1m[36mTRANSACTION (6.2ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/turnos" for 127.0.0.1 at 2022-12-01 19:02:40 -0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by TurnosController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering turnos/index.html.erb within layouts/application
+  [1m[36mTurno Load (0.3ms)[0m  [1m[34mSELECT `turnos`.* FROM `turnos`[0m
+  ↳ app/views/turnos/index.html.erb:11
+  Rendered turnos/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 1108)
+  [1m[36mUsuario Load (0.4ms)[0m  [1m[34mSELECT `usuarios`.* FROM `usuarios` WHERE `usuarios`.`id` = 1 ORDER BY `usuarios`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/_header.html.erb:2
+  Rendered layouts/_header.html.erb (Duration: 18.0ms | Allocations: 20857)
+  Rendered layout layouts/application.html.erb (Duration: 45.3ms | Allocations: 56516)
+Completed 200 OK in 51ms (Views: 43.6ms | ActiveRecord: 3.1ms | Allocations: 64656)
+
+
+Started GET "/" for 127.0.0.1 at 2022-12-01 19:02:49 -0300
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 387)
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 117)
+  Rendered layout layouts/application.html.erb (Duration: 3.6ms | Allocations: 2749)
+Completed 200 OK in 5ms (Views: 4.4ms | ActiveRecord: 0.0ms | Allocations: 3497)
+
+
+Started GET "/users/" for 127.0.0.1 at 2022-12-01 19:02:50 -0300
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUsuario Load (0.2ms)[0m  [1m[34mSELECT `usuarios`.* FROM `usuarios`[0m
+  ↳ app/views/users/index.html.erb:11
+  Rendered users/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1532)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 150)
+  Rendered layout layouts/application.html.erb (Duration: 4.4ms | Allocations: 4084)
+Completed 200 OK in 6ms (Views: 4.9ms | ActiveRecord: 0.2ms | Allocations: 4852)
+
+

@@ -34,7 +34,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_29_221843) do
     t.date "fecha"
     t.time "hora"
     t.string "motivo"
-    t.boolean "estado"
+    t.string "estado"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -43,7 +43,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_29_221843) do
     t.string "nombre", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "email", default: "", null: false
-    t.string "role", default: "cliente", null: false
+    t.string "role", default: "Cliente", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

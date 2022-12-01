@@ -13,6 +13,12 @@ class HorariosController < ApplicationController
         end
     end
 
+    def show
+        @sucursal = Sucursal.find(params[:id])
+        @horario = Horario.where(:sucursal_id => params[:id])
+    end
+
+
 
     private
 

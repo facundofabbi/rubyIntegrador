@@ -4,7 +4,7 @@ class CreateTurnos < ActiveRecord::Migration[7.0]
       t.date :fecha
       t.time :hora
       t.string :motivo
-      t.boolean :estado
+      t.string :estado
 
       t.timestamps
     end

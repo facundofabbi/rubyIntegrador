@@ -7,6 +7,7 @@
     <th>Telefono</th>
     <th>Horarios</th>
     <th>Agregar horario</th>
+    <th>Ver horario</th>
   </tr>
   <% @sucursales.each do |su| %>
     <tr>
@@ -21,6 +22,11 @@
     <td>
     <%= link_to new_horario_path(su.id) do %>
         <span>Agregar horario</span>
+    <%end%>
+    </td>
+    <td>
+    <%= link_to horario_path(su.id) do %>
+        <span>Ver horarios de la sucursal</span>
     <%end%>
     </td>
     </tr>

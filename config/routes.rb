@@ -23,6 +23,7 @@ Rails.application.routes.draw do
 
   post '/sucursales/:id/horarios/new', to: 'horarios#create'
   get '/sucursales/:id/horarios/new', to: 'horarios#new', as: :new_horario
+  get '/sucursales/:id/horarios', to: 'horarios#show', as: :horario
 
 
 
