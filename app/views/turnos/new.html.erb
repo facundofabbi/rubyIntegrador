@@ -5,6 +5,15 @@
 <%= form_with model: @turno do |form| %>
 
     <div>
+        <%= form.label :sucursal %>
+        <%= form.select "sucursal", @sucursales.map{ |su| ["#{su.nombre}", su.id] }, :multiple => true %>
+    </div>
+    
+    <div>
+        <%= form.hidden_field :cliente_id, value: @cliente_id%>
+    </div>
+
+    <div>
         <%= form.label :fecha %>
         <%= form.date_field :fecha%>
     </div>
@@ -20,9 +29,9 @@
     </div>
 
     <div>
-        <%= form.label :estado %>
-        <%= form.text_field :estado%>
+        <%= form.hidden_field :estado, value: "Pendiente"%>
     </div>
+
 
     <%= form.submit %>
 

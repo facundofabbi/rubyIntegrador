@@ -1,13 +1,3 @@
 <% if usuario_signed_in? %>
-<p>pruieba de nombre <%= current_usuario.nombre %></p>
+<h2>Bienvenido <%= current_usuario.nombre %></h2>
 <% end %>
-
-<a href="http://127.0.0.1:3000/turnos/">
-   <button>Ver Turnos</button>
-</a>
-<a href="http://127.0.0.1:3000/users/">
-   <button>Ver Usuarios</button>
-</a>
-<a href="http://127.0.0.1:3000/sucursales/">
-   <button>Ver Sucursales</button>
-</a>

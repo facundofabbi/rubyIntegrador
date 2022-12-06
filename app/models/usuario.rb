@@ -9,6 +9,6 @@ class Usuario < ApplicationRecord
   #def assign_default_role
   #      self.add_role(:cliente) if self.roles.blank?
   #end
-
+  has_many :turnos
 
 end

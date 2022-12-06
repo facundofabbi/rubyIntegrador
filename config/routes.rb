@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get '/users/:id', to: 'users#show', as: :usuario
   get '/users/:id/edit', to: 'users#edit', as: :edit_usuario
 
+
   post '/turnos', to: 'turnos#create'
   get '/turnos/new', to: 'turnos#new', as: :new_turno
   get '/turnos', to: 'turnos#index'

@@ -1,6 +1,6 @@
 class HorariosController < ApplicationController
     def new
-        @horario = Horario.new
+        @horarios = Horario.new
         @sucursal_id = params[:id]
     end
 

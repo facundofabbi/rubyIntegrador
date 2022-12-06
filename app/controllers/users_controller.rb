@@ -4,7 +4,7 @@ class UsersController < ApplicationController
     end
 
     def show
-        @usuarios = Usuario.find(params[:id])
+        @usuario = Usuario.find(params[:id])
     end
 
     def new 
@@ -21,6 +21,7 @@ class UsersController < ApplicationController
     end
 
     def edit
+        @edita_perfil = false
         @usuario = Usuario.find(params[:id])
     end
 
@@ -33,6 +34,13 @@ class UsersController < ApplicationController
             redirect_to "/users/#{@user.id}/edit"
          end
         
+    end
+
+    def edit_perfil
+        @edita_perfil = true
+        @role = current_usuario.role
+        @usuario = Usuario.find(current_usuario.id)
+        redirect_to "/users/#{current_usuario.id}/edit"
     end
 
 

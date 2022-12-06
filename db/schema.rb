@@ -12,14 +12,12 @@
 
 ActiveRecord::Schema[7.0].define(version: 2022_11_29_221843) do
   create_table "horarios", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.bigint "sucursal_id", null: false
     t.string "dia", null: false
     t.time "hora_inicio"
     t.time "hora_fin"
+    t.integer "sucursal_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["sucursal_id", "dia"], name: "index_horarios_on_sucursal_id_and_dia", unique: true
-    t.index ["sucursal_id"], name: "index_horarios_on_sucursal_id"
   end
 
   create_table "sucursals", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -35,6 +33,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_29_221843) do
     t.time "hora"
     t.string "motivo"
     t.string "estado"
+    t.integer "sucursal_id", null: false
+    t.integer "cliente_id", null: false
+    t.integer "personal_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
