@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
 
   post '/turnos', to: 'turnos#create'
-  get '/turnos/new', to: 'turnos#new', as: :new_turno
+  get '/turnos/:id/new', to: 'turnos#new', as: :new_turno
   get '/turnos', to: 'turnos#index'
   get '/turnos/:id', to: 'turnos#show', as: :turno
   # Defines the root path route ("/")
@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   post '/sucursales/new', to: 'sucursales#create'
   get '/sucursales/new', to: 'sucursales#new', as: :new_sucursal
   get '/sucursales', to: 'sucursales#index'
+  get '/sucursales_turnos', to: 'sucursales#index_turno'
   get '/sucursales/:id', to: 'sucursales#show', as: :sucursals
 
 

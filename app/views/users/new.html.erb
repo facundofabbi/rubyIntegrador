@@ -23,10 +23,15 @@
         <%= form.text_field :password_confirmation%>
     </div>
 
-    <div class="form-group">
-        <%= form.label :Role %>
-        <%= form.select :role, ["Administrador", "Personal Bancario"] %>
-    </div>
+    <% if @admin == "false"  %>
+        <%= form.hidden_field :role, value: "Personal Bancario" %>
+        <div class="form-group">
+            <%= form.label :seleccione_una_sucursal %>
+            <%= form.select "sucursal_id", options_for_select(Sucursal.all.collect { |su| [su.nombre, su.id] }, @usuario.sucursal_id)%>
+        </div>
+    <%else%>
+        <%= form.hidden_field :role, value: "Administrador" %>
+    <%end%>
     <%= form.submit "Guardar"%>
 
 <%end%>

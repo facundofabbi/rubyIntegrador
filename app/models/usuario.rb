@@ -10,5 +10,7 @@ class Usuario < ApplicationRecord
   #      self.add_role(:cliente) if self.roles.blank?
   #end
   has_many :turnos
+  belongs_to :sucursal, class_name: "Sucursal", optional:true
+
 
 end

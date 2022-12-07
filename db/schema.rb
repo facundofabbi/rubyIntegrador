@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_29_221843) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_29_381543) do
   create_table "horarios", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "dia", null: false
     t.time "hora_inicio"
@@ -22,22 +22,25 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_29_221843) do
 
   create_table "sucursals", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "nombre", null: false
-    t.string "direccion"
-    t.integer "telefono"
+    t.string "direccion", null: false
+    t.integer "telefono", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "turnos", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "sucursal_id", null: false
+    t.bigint "cliente_id", null: false
+    t.bigint "personal_id"
     t.date "fecha"
     t.time "hora"
     t.string "motivo"
     t.string "estado"
-    t.integer "sucursal_id", null: false
-    t.integer "cliente_id", null: false
-    t.integer "personal_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["cliente_id"], name: "index_turnos_on_cliente_id"
+    t.index ["personal_id"], name: "index_turnos_on_personal_id"
+    t.index ["sucursal_id"], name: "index_turnos_on_sucursal_id"
   end
 
   create_table "usuarios", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -45,6 +48,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_29_221843) do
     t.string "encrypted_password", default: "", null: false
     t.string "email", default: "", null: false
     t.string "role", default: "Cliente", null: false
+    t.bigint "sucursal_id"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -52,6 +56,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_29_221843) do
     t.datetime "updated_at", null: false
     t.index ["nombre"], name: "index_usuarios_on_nombre", unique: true
     t.index ["reset_password_token"], name: "index_usuarios_on_reset_password_token", unique: true
+    t.index ["sucursal_id"], name: "index_usuarios_on_sucursal_id"
   end
 
+  add_foreign_key "turnos", "sucursals"
+  add_foreign_key "turnos", "usuarios", column: "cliente_id"
+  add_foreign_key "turnos", "usuarios", column: "personal_id"
 end

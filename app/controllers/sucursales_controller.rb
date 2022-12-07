@@ -11,6 +11,10 @@ class SucursalesController < ApplicationController
         @sucursal = Sucursal.new
     end
 
+    def index_turno
+        @sucursales = Sucursal.all
+    end
+
 
     def create
         @sucursal = Sucursal.new({:nombre => params[:nombre], :direccion => params[:direccion], :telefono => params[:telefono] })

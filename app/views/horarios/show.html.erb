@@ -1,5 +1,10 @@
-<p>Detalles de los horarios de la sucursal:  <%= @sucursal.nombre %></p>
-<table>
+<% if current_usuario.role == "Cliente"%>
+    <button type="button" class="btn btn-outline-dark"><%= link_to 'Volver al listado', sucursales_turnos_path %></button>
+<% else %>
+  <button type="button" class="btn btn-outline-dark"><%= link_to 'Volver al listado', sucursales_path %></button>
+<% end %>
+<h1>Detalles de los horarios de la sucursal:  <%= @sucursal.nombre %></h1>
+<table class="table table-striped table-bordered table-hover">
   <tr>
     <th>Dia</th>
     <th>Hora de inicio</th>
@@ -8,8 +13,8 @@
   <% @horario.each do |ho| %>
     <tr>
     <td> <%= ho.dia %> </td>
-    <td> <%= ho.hora_inicio %> </td>
-    <td> <%= ho.hora_fin %> </td>
+    <td> <%= ho.hora_inicio.strftime("%H:%M")  %> </td>
+    <td> <%= ho.hora_fin.strftime("%H:%M")  %> </td>
     <td>
     </tr>
   <%end%>

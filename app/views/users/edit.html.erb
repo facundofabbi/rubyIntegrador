@@ -20,17 +20,6 @@
         <%= form.text_field :email%>
     </div>
 
-
-    <%- if @edita_perfil %>
-    
-    <% else %>
-        <div>
-            <%= form.label :Role %>
-            <%= form.select :role, ["Administrador", "Personal Bancario", "Cliente"] %>
-        </div>  
-    <% end %>
-
-
     
 
     <%= form.submit %>
