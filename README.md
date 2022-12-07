@@ -72,7 +72,7 @@ El backend fue desarrollado utilizando Ruby on Rails 7 y, MySQL como gestor de b
 
 Una vez instalados Ruby y MySql
 ### Descargar código fuente:
-* [Repositorio Github](https://github.com/juliancasaburi/ttps-ruby-tpi-unlp-2020.git)
+* [Repositorio Github](https://github.com/facundofabbi/rubyIntegrador)
 * O desde la consola, clonar el repositorio:
 
   ```bash
