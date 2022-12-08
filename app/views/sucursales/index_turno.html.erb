@@ -9,6 +9,7 @@
 
   </tr>
   <% @sucursales.each do |su| %>
+   <% if !(su.horario.empty?) %>
     <tr>
     <td> <%= su.nombre %> </td>
     <td> <%= su.direccion %> </td>
@@ -28,6 +29,7 @@
     <%end%>
     </td>
     </tr>
+    <%end%>
   <%end%>
   
 </table> 

@@ -1,6 +1,6 @@
 class Sucursal < ApplicationRecord
-    has_many :horario
-    has_many :turnos
+    has_many :horario, dependent: :destroy
+    has_many :turnos, dependent: :destroy
     has_many :usuarios
 
     def self.chequear_turno(dia,hora_solicitada,sucursal_id)
@@ -15,5 +15,20 @@ class Sucursal < ApplicationRecord
             end
         end
         false
+    end
+
+    def self.chequear_eliminar(sucursal_id)
+        usuarios = Sucursal.find(sucursal_id).usuarios
+        turnos = Sucursal.find(sucursal_id).turnos
+        if usuarios.empty?
+            turnos.each do |tu|
+                if tu.estado == "Pendiente"
+                    return false
+                end
+            end
+        else
+            return false
+        end
+        return true
     end
 end

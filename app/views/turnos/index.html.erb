@@ -5,19 +5,28 @@
     <th>Hora</th>
     <th>Motivo</th>
     <th>Estado</th>
-    <th>Detalles</th>
+    <% if current_usuario.role == "Personal Bancario"%>
+      <th>Detalles</th>
+    <% elsif @estado != "Atendido"  %>
+      <th>Cancelar</th>
+    <% elsif %>
+      <th>Ver Comentario</th>
+    <% end %>
   </tr>
   <% @turnos.each do |tur| %>
   <tr>
     <td> <%= tur.fecha %> </td>
-    <td> <%= tur.hora %> </td>
+    <td> <%= tur.hora.strftime("%H:%M") %> </td>
     <td> <%= tur.motivo %> </td>
     <td> <%= tur.estado %> </td>
     <td>
-    <%= link_to turno_path(tur.id) do %>
-        <span>Ver turno</span>
-    <%end%>
-    
+    <% if current_usuario.role == "Personal Bancario"%>
+      <%= button_to 'Atender', destroy_turno_path(tur.id),method: :delete , class:'btn btn-warning' %>
+    <% elsif @estado != "Atendido"  %>
+        <%= button_to 'Cancelar', destroy_turno_path(tur.id),method: :delete , class:'btn btn-danger' %>
+    <% elsif %>
+       <%= button_to 'Ver Comentario', destroy_turno_path(tur.id),method: :delete , class:'btn btn-warning' %>
+    <% end %>
     </td>
   </tr>
   <%end%>

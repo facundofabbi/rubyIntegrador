@@ -26,6 +26,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_29_381543) do
     t.integer "telefono", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["nombre"], name: "index_sucursals_on_nombre", unique: true
   end
 
   create_table "turnos", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -54,6 +55,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_29_381543) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_usuarios_on_email", unique: true
     t.index ["nombre"], name: "index_usuarios_on_nombre", unique: true
     t.index ["reset_password_token"], name: "index_usuarios_on_reset_password_token", unique: true
     t.index ["sucursal_id"], name: "index_usuarios_on_sucursal_id"

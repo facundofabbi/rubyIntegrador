@@ -32,35 +32,89 @@
           Módulos
         </div>
 
+        <%- if usuario_signed_in? %>
+          <li class="nav-item">
+          <%= link_to usuario_path(current_usuario.id), class: "nav-link"  do %>
+              <i class="fas fa-fw fa-tags"></i>
+              <span>Ver mis datos</span>
+              <%end%>
+          </li>
 
-        <li class="nav-item">
-        <%= link_to edit_usuario_registration_path, class: "nav-link"  do %>
-            <i class="fas fa-fw fa-tags"></i>
-            <span>Editar mi perfil</span>
-            <%end%>
-        </li>
+          <li class="nav-item">
+          <%= link_to edit_usuario_registration_path, class: "nav-link"  do %>
+              <i class="fas fa-fw fa-tags"></i>
+              <span>Cambiar mi contraseña</span>
+              <%end%>
+          </li>
 
-        <li class="nav-item">
-          <%= link_to turnos_path, class: "nav-link"  do %>
-            <i class="fas fa-fw fa-tags"></i>
-            <span>Ver Turnos</span>
+
+
+          <% if current_usuario.role == "Cliente"%>
+            <li class="nav-item">
+            <%= link_to sucursales_turnos_path, class: "nav-link"  do %>
+                <i class="fas fa-fw fa-tags"></i>
+                <span>Necesitas un prestamo?</span>
+                <%end%>
+            </li>
+            <li class="nav-item">
+            <%= link_to turnos_path(estado: "Pendiente"), class: "nav-link"  do %>
+                <i class="fas fa-fw fa-tags"></i>
+                <span>Turnos pendientes</span>
+                <%end%>
+            </li>
+            <li class="nav-item">
+            <%= link_to turnos_path(estado: "Atendido"), class: "nav-link"  do %>
+                <i class="fas fa-fw fa-tags"></i>
+                <span>Turnos Finalizados</span>
+                <%end%>
+            </li>
           <%end%>
-        </li>
 
-        <li class="nav-item">
-          <%= link_to users_path, class: "nav-link"  do %>
-            <i class="fas fa-fw fa-shopping-basket"></i>
-            <span>Ver Usuarios</span>
-             <%end%>
-        </li>
 
-        <li class="nav-item">
-          <%= link_to sucursales_path, class: "nav-link"  do %>
-            <i class="fas fa-fw fa-users"></i>
-            <span>Ver Sucursales</span></a>
-            <%end%>
-        </li>
-      </ul>
+
+
+          <% if current_usuario.role == "Personal Bancario"%>
+            <li class="nav-item">
+              <%= link_to sucursales_path, class: "nav-link"  do %>
+                <i class="fas fa-fw fa-users"></i>
+                <span>Ver Sucursales</span></a>
+                <%end%>
+            </li>
+            <li class="nav-item">
+              <%= link_to turnos_path(estado: "Pendiente"), class: "nav-link"  do %>
+                <i class="fas fa-fw fa-users"></i>
+                <span>Turnos Pendientes</span></a>
+                <%end%>
+            </li>
+            <li class="nav-item">
+              <%= link_to users_path(role: "Cliente"), class: "nav-link"  do %>
+                <i class="fas fa-fw fa-shopping-basket"></i>
+                <span>Ver Clientes</span>
+                <%end%>
+            </li>
+          <% end %>
+
+
+
+          <% if current_usuario.role == "Administrador"%>
+            <li class="nav-item">
+              <%= link_to sucursales_path, class: "nav-link"  do %>
+                <i class="fas fa-fw fa-users"></i>
+                <span>Ver Sucursales</span></a>
+                <%end%>
+            </li>
+              <li class="nav-item">
+                <%= link_to users_path, class: "nav-link"  do %>
+                  <i class="fas fa-fw fa-shopping-basket"></i>
+                  <span>Ver Usuarios</span>
+                  <%end%>
+              </li>
+          <% end %>
+
+
+
+        <% end %>
+        </ul>
       <!-- End of Sidebar -->
       <div id="content-wrapper" class="d-flex flex-column">
         <div id="content">
@@ -96,7 +150,7 @@
                   </form>
                 </div>
               </li>
-
+           
               <div class="topbar-divider d-none d-sm-block"></div>
               <% if usuario_signed_in? %>
               <!-- Nav Item - User Information -->
@@ -118,6 +172,7 @@
             </ul>
 
           </nav>
+          
           <!-- End of Topbar -->
           <div class="container-fluid">
             <%= render 'layouts/header' %>

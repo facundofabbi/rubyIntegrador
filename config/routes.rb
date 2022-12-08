@@ -13,9 +13,13 @@ Rails.application.routes.draw do
   get '/turnos/:id/new', to: 'turnos#new', as: :new_turno
   get '/turnos', to: 'turnos#index'
   get '/turnos/:id', to: 'turnos#show', as: :turno
+  delete '/turnos/:id', to: 'turnos#destroy', as: :destroy_turno
   # Defines the root path route ("/")
 
-
+  patch '/sucursales/:id', to: 'sucursales#update'
+  get '/sucursales/:id/edit', to: 'sucursales#edit', as: :edit_sucursal
+  post '/sucursales/:id/edit', to: 'sucursales#update'
+  delete '/sucursales/:id', to: 'sucursales#destroy', as: :destroy_sucursal
   post '/sucursales/new', to: 'sucursales#create'
   get '/sucursales/new', to: 'sucursales#new', as: :new_sucursal
   get '/sucursales', to: 'sucursales#index'

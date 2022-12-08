@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
     def index
-        @usuarios = Usuario.all
+        begin
+            @usuarios = Usuario.where(:role => params[:role])
+        rescue
+            @usuarios = Usuario.all
+        end
     end
 
     def show
