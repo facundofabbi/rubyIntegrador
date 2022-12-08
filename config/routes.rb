@@ -30,6 +30,8 @@ Rails.application.routes.draw do
   post '/sucursales/:id/horarios/new', to: 'horarios#create'
   get '/sucursales/:id/horarios/new', to: 'horarios#new', as: :new_horario
   get '/sucursales/:id/horarios', to: 'horarios#show', as: :horario
+  get '/sucursales/:id/horarios/edit', to: 'horarios#edit', as: :edit_horario
+  patch '/sucursales/:id/horarios', to: 'horarios#update'
 
   post '/comentarios/:id/new', to: 'comentarios#create'
   get '/comentarios/:id/new', to: 'comentarios#new', as: :new_comentario

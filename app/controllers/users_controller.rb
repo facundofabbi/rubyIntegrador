@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
     def index
-        begin
-            @usuarios = Usuario.where(:role => params[:role])
-        rescue
+        if params[:role].nil?
             @usuarios = Usuario.all
+        else
+            @usuarios = Usuario.where(:role => params[:role]) 
         end
     end
 

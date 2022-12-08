@@ -29,6 +29,7 @@ class SucursalesController < ApplicationController
         @sucursal = Sucursal.find(params[:id])
         #@usuarios = Sucursal.find(params[:id]).usuarios
         if Sucursal.chequear_eliminar(params[:id])
+            Comentario.eliminar_comentarios(@sucursal)
             @sucursal.destroy
         end
         redirect_to sucursales_path
@@ -36,10 +37,11 @@ class SucursalesController < ApplicationController
 
 
     def edit
-        
+        @sucursals = Sucursal.find(params[:id])
     end
 
     def update
+        #pp "ESTOS SON LOS PARAMTERSO DELSUCURSAL", sucursal_params
         @sucu = Sucursal.find(params[:id])
         begin @sucu.update({:nombre => params[:nombre], :direccion => params[:direccion], :telefono => params[:telefono] })
             redirect_to sucursals_path

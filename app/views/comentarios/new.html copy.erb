@@ -1,0 +1,22 @@
+<h1>Agregar Comentario</h1>
+
+<%= form_with model: @comentario do |form| %>
+    
+
+    <div class="form-group">
+        <%= form.label :Comentario %>
+        <%= form.text_field :texto%>
+    </div>
+    <div>
+        <%= form.hidden_field :sucursal_id, value: @sucursal.id%>
+    </div>
+
+    <div>
+        <%= form.hidden_field :estado, value: "Pendiente"%>
+    </div>
+
+
+    <%= form.submit %>
+
+
+<%end%>

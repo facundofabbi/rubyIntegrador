@@ -17,11 +17,8 @@ class ComentariosController < ApplicationController
     end
 
     def show
-
         @comentario = Comentario.where(:turno_id => params[:id]).first
         @personal = Usuario.find(@comentario.personal_id)
-        
-        pp "ESTE ES EL COMENTARIO", @comentario.turno_id
     end
 
 

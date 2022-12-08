@@ -18,7 +18,21 @@ class HorariosController < ApplicationController
         @horario = Horario.where(:sucursal_id => params[:id])
     end
 
+    def edit
+        @horario = Horario.find(params[:id])
+    end
 
+    def update
+        @horario = Horario.find(params[:id])
+        if @horario.update(horario_params)
+            redirect_to sucursales_path
+        else
+            redirect_to "/sucursales/#{@horario.id}/horarios/edit"
+        end
+        #flash[:errors] = @horario.errors.full_messages
+        #redirect_to "/horarios/#{@horario.id}/edit"
+        
+    end
 
     private
 
