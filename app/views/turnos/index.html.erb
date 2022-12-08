@@ -1,34 +1,48 @@
+<% if @turnos.empty? %>
+  <h2> No tienes turnos <%= @estado %>s</h2>
+<% else %>
 <h1>Turnos:</h1>
-<table class="table table-striped table-bordered table-hover">
-  <tr>
-    <th>Fecha</th>
-    <th>Hora</th>
-    <th>Motivo</th>
-    <th>Estado</th>
-    <% if current_usuario.role == "Personal Bancario"%>
-      <th>Detalles</th>
-    <% elsif @estado != "Atendido"  %>
-      <th>Cancelar</th>
-    <% elsif %>
-      <th>Ver Comentario</th>
-    <% end %>
-  </tr>
-  <% @turnos.each do |tur| %>
-  <tr>
-    <td> <%= tur.fecha %> </td>
-    <td> <%= tur.hora.strftime("%H:%M") %> </td>
-    <td> <%= tur.motivo %> </td>
-    <td> <%= tur.estado %> </td>
-    <td>
-    <% if current_usuario.role == "Personal Bancario"%>
-      <%= button_to 'Atender', destroy_turno_path(tur.id),method: :delete , class:'btn btn-warning' %>
-    <% elsif @estado != "Atendido"  %>
-        <%= button_to 'Cancelar', destroy_turno_path(tur.id),method: :delete , class:'btn btn-danger' %>
-    <% elsif %>
-       <%= button_to 'Ver Comentario', destroy_turno_path(tur.id),method: :delete , class:'btn btn-warning' %>
-    <% end %>
-    </td>
-  </tr>
-  <%end%>
-  
-</table> 
+  <table class="table table-striped table-bordered table-hover">
+    <tr>
+      <th>Fecha</th>
+      <th>Hora</th>
+      <th>Motivo</th>
+      <th>Estado</th>
+      <% if current_usuario.role == "Personal Bancario"%>
+        <th>Atender</th>
+      <% elsif @estado != "Atendido"  %>
+        <th>Cancelar</th>
+      <% elsif %>
+        <th>Ver Comentario</th>
+      <% end %>
+    </tr>
+    <% @turnos.each do |tur| %>
+    <tr>
+      <td> <%= tur.fecha %> </td>
+      <td> <%= tur.hora.strftime("%H:%M") %> </td>
+      <td> <%= tur.motivo %> </td>
+      <td> <%= tur.estado %> </td>
+      <td>
+      <% if current_usuario.role == "Personal Bancario"%>
+        <%= link_to new_comentario_path(tur.id) do %>
+          <button type="button" class="btn btn-primary"> 
+            <span>Atender</span>
+          </button> 
+        <%end%>
+        </td>
+      <% elsif @estado != "Atendido"  %>
+          <%= button_to 'Cancelar', destroy_turno_path(tur.id),method: :delete , class:'btn btn-danger' %>
+      <% elsif %>
+        <%= link_to comentario_path(tur.id) do %>
+          <button type="button" class="btn btn-primary"> 
+            <span>Ver Comentario</span>
+          </button> 
+        <%end%>
+      <% end %>
+      </td>
+    </tr>
+    <%end%>
+    
+  </table> 
+
+<% end %>

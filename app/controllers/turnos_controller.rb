@@ -2,7 +2,11 @@ class TurnosController < ApplicationController
     def index
         begin
             @estado = params[:estado]
-            @turnos = Turno.where(:estado => params[:estado])
+            if current_usuario.role == "Personal Bancario"
+                @turnos = Turno.where(:estado => params[:estado], :sucursal_id => current_usuario.sucursal_id)
+            else
+                @turnos = Turno.where(:estado => params[:estado], :cliente_id => current_usuario.id)
+            end
         rescue
             @turnos = Turno.all
         end

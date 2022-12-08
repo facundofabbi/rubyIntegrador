@@ -14,7 +14,7 @@ Sucursal.create(:nombre => "Gonnet", :direccion => "511 y centenario", :telefono
 Usuario.create(:nombre => "Administrador principal", :email => "admin@admin", :password => "123456", :password_confirmation => "123456", :role => "Administrador")
 Usuario.create(:nombre => "Administrador B", :email => "adminB@admin", :password => "123456", :password_confirmation => "123456", :role => "Administrador")
 
-Usuario.create(:nombre => "Personal bancario", :email => "personal@personal", :password => "123456", :password_confirmation => "123456", :role => "Personal Bancario", :sucursal_id => "1")
+Usuario.create(:nombre => "Personal bancario de prueba", :email => "personal@personal", :password => "123456", :password_confirmation => "123456", :role => "Personal Bancario", :sucursal_id => "1")
 Usuario.create(:nombre => "Personal bancario 2", :email => "personalB@personal", :password => "123456", :password_confirmation => "123456", :role => "Personal Bancario", :sucursal_id => "1")
 
 Usuario.create(:nombre => "Personal bancario 3", :email => "personalC@personal", :password => "123456", :password_confirmation => "123456", :role => "Personal Bancario", :sucursal_id => "2")
@@ -61,11 +61,16 @@ Turno.create(:fecha => "02-01-2023", :hora => "11:00", :motivo => "Prestamo de c
 Turno.create(:fecha => "02-01-2023", :hora => "12:00", :motivo => "Prestamo de un inflable", :estado => "Pendiente", :sucursal_id => 2, :cliente_id => 10)
 Turno.create(:fecha => "04-01-2023", :hora => "08:00", :motivo => "Prestamo para poder comprar una ventana", :estado => "Pendiente", :sucursal_id => 3, :cliente_id => 10)
 
-Turno.create(:fecha => "03-01-2023", :hora => "11:00", :motivo => "Preguntas por alta de cuenta", :estado => "Atendido", :sucursal_id => 1, :cliente_id => 9, :personal_id => 3)
-Turno.create(:fecha => "03-01-2023", :hora => "11:00", :motivo => "Quiero cerar mi cuenta", :estado => "Atendido", :sucursal_id => 2, :cliente_id => 9, :personal_id => 3)
+Turno.create(:fecha => "03-01-2023", :hora => "11:00", :motivo => "Preguntas por alta de cuenta", :estado => "Atendido", :sucursal_id => 1, :cliente_id => 9, :personal_id => 3)#7
+Turno.create(:fecha => "03-01-2023", :hora => "11:00", :motivo => "Quiero cerar mi cuenta", :estado => "Atendido", :sucursal_id => 2, :cliente_id => 9, :personal_id => 3)#8
 
-Turno.create(:fecha => "03-01-2023", :hora => "11:00", :motivo => "Dudas de un prestamo que solicite", :estado => "Atendido", :sucursal_id => 1, :cliente_id => 10, :personal_id => 3)
-Turno.create(:fecha => "03-01-2023", :hora => "11:00", :motivo => "Fui porque tenia un conocido", :estado => "Atendido", :sucursal_id => 2, :cliente_id => 10, :personal_id => 3)
+Turno.create(:fecha => "03-01-2023", :hora => "11:00", :motivo => "Dudas de un prestamo que solicite", :estado => "Atendido", :sucursal_id => 1, :cliente_id => 10, :personal_id => 3)#9
+Turno.create(:fecha => "03-01-2023", :hora => "11:00", :motivo => "Hola motivo", :estado => "Atendido", :sucursal_id => 2, :cliente_id => 10, :personal_id => 3)#10
 
-Turno.create(:fecha => "03-01-2023", :hora => "11:00", :motivo => "Fui porque tenia un conocido", :estado => "Atendido", :sucursal_id => 5, :cliente_id => 10, :personal_id => 3)
-Turno.create(:fecha => "03-01-2023", :hora => "11:00", :motivo => "Fui porque tenia un conocido", :estado => "Pendiente", :sucursal_id => 5, :cliente_id => 10, :personal_id => 3)
+Turno.create(:fecha => "03-01-2023", :hora => "11:00", :motivo => "Porq si", :estado => "Atendido", :sucursal_id => 5, :cliente_id => 10, :personal_id => 3)#11
+
+Comentario.create(:texto => "Se finalizo con exito la consulta que tenia el cliente sobre el prestamo", :turno_id=> 7 , :personal_id => 3 )
+Comentario.create(:texto => "Probando texto del comentario", :turno_id=> 8 , :personal_id => 3 )
+Comentario.create(:texto => "Ya se termino", :turno_id=> 9 , :personal_id => 3 )
+Comentario.create(:texto => "No vino a la consulta", :turno_id=> 10 , :personal_id => 3 )
+Comentario.create(:texto => "Termine el trabajo(creo)", :turno_id=> 11 , :personal_id => 3 )
