@@ -1,0 +1,6 @@
+<% if usuario_signed_in? %>
+<h1>Bienvenido <%= current_usuario.nombre %></h1>
+<% if current_usuario.role == "Cliente"%>
+    <h2>Necesitas un prestamo?</h2><button type="button" class="btn btn-outline-dark"><%= link_to 'Solicita un turno!', sucursals_turnos_path %></button>
+<% end %>
+<% end %>

@@ -1,0 +1,45 @@
+<% if current_usuario.role == "Administrador"%>
+<button type="button" class="btn btn-outline-dark"><%= link_to 'Añadir un nuevo administrador',  new_usuario_path(admin: true)  %></button>
+<button type="button" class="btn btn-outline-dark"><%= link_to 'Añadir un nuevo personal bancario',  new_usuario_path(admin: false)  %></button>
+<% end %>
+<h1>Usuarios:</h1>
+<table class="table table-striped table-bordered table-hover">
+  <tr>
+    <th>Nombre</th>
+    <th>Email</th>
+    <th>Role</th>
+    <th>Ver</th>
+    <% if current_usuario.role == "Administrador"%>
+      <th>Editar</th>
+      <th>Eliminar</th>
+    <% end %>
+  </tr>
+  <% @usuarios.each do |usu| %>
+  <tr>
+    <td> <%= usu.nombre %> </td>
+    <td> <%= usu.email %> </td>
+    <td> <%= usu.role %> </td>
+    
+    <td>
+    <%= link_to usuario_path(usu.id) do %>
+      <button type="button" class="btn btn-secondary"> 
+        <span>Ver usuario</span>
+      </button>
+    <%end%>
+    </td>
+    <% if current_usuario.role == "Administrador"%>
+      <td>
+      <%= link_to edit_usuario_path(usu.id) do %>
+        <button type="button" class="btn btn-primary">
+          <span>Editar usuario</span>
+        </button>    
+      <%end%>
+      </td>
+      <td>
+      <%= button_to 'Eliminar Usuario', destroy_user_path(usu.id),method: :delete , class:'btn btn-danger' %>
+      </td>
+    <% end %>
+  </tr>
+  <%end%>
+  
+</table> 

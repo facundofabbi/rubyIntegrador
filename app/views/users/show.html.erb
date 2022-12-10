@@ -1,0 +1,20 @@
+<% if current_usuario.role == "Administrador"%>
+<button type="button" class="btn btn-outline-dark"><%= link_to 'Volver al listado', users_path %></button>
+<h1>Detalles del usuario: <% @usuario.nombre %></h1>
+<%else%>
+<button type="button" class="btn btn-outline-dark"><%= link_to 'Volver ', root_path %></button>
+<h1>Tus Datos: <% @usuario.nombre %></h1>
+<%end%>
+<table class="table table-striped table-bordered table-hover">
+  <tr>
+    <th>Nombre</th>
+    <th>Email</th>
+    <th>Role</th>
+  </tr>
+  <tr>
+    <td> <%= @usuario.nombre %> </td>
+    <td> <%= @usuario.email %> </td>
+    <td> <%= @usuario.role %> </td>
+  </tr>
+  
+</table> 

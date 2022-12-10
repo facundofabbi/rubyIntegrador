@@ -1,0 +1,23 @@
+<button type="button" class="btn btn-outline-dark"><%= link_to 'Volver al listado', sucursals_path %></button>
+<h2>Editar Horario </h2>
+<%= form_with model: @horario do |form| %>
+
+    <h3>Dia: <%= @horario.dia %></h3>
+
+    <div class="form-group">
+        <%= form.label :hora_inicio %>
+        <%= form.time_field :hora_inicio %>
+    </div>
+    
+    <div class="form-group">
+        <%= form.label :hora_fin %>
+        <%= form.time_field :hora_fin %>
+    </div>
+
+    <%= form.hidden_field :sucursal_id, value: @horario.sucursal_id %>
+
+
+    <%= form.submit 'Actualizar' %>
+
+
+<%end%>

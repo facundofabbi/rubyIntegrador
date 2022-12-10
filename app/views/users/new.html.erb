@@ -1,0 +1,40 @@
+<button type="button" class="btn btn-outline-dark"><%= link_to 'Volver al listado', users_path %></button>
+<h2>Agregar un nuevo usuario:</h2>
+
+<%= form_with model: @usuarios do |form| %>
+
+    <div class="form-group">
+    <%= form.label :Nombre %>
+        <%= form.text_field :nombre%>
+    </div>
+
+    <div class="form-group">
+        <%= form.label :Email %>
+        <%= form.text_field :email%>
+    </div>
+    
+    <div class="form-group">
+        <%= form.label :Contraseña %>
+        <%= form.text_field :password%>
+    </div>
+
+    <div class="form-group">
+        <%= form.label :Confirmar_Contraseña %>
+        <%= form.text_field :password_confirmation%>
+    </div>
+
+    <%= form.hidden_field :admin, value: @admin %>
+    <% if @admin == "false"  %>
+        <%= form.hidden_field :role, value: "Personal Bancario" %>
+        <div class="form-group">
+            <%= form.label :seleccione_una_sucursal %>
+            <%= form.select "sucursal_id", options_for_select(Sucursal.all.collect { |su| [su.nombre, su.id] }, @usuario.sucursal_id)%>
+        </div>
+    <%else%>
+        <%= form.hidden_field :role, value: "Administrador" %>
+    <%end%>
+    <%= form.submit "Guardar"%>
+
+<%end%>
+
+

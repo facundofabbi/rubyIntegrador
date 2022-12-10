@@ -1,0 +1,28 @@
+<%- if !@edita_perfil %>
+<button type="button" class="btn btn-outline-dark"><%= link_to 'Volver al listado', users_path %></button>
+<h2>Editar usuario</h2>
+
+
+<% else %>
+<h2>Editar mi perfil</h2>
+<% end %>
+
+
+<%= form_with model: @usuario do |form| %>
+
+    <div>
+        <%= form.label :nombre %>
+        <%= form.text_field :nombre%>
+    </div>
+
+    <div>
+        <%= form.label :email %>
+        <%= form.text_field :email%>
+    </div>
+
+    
+
+    <%= form.submit %>
+
+
+<%end%>
