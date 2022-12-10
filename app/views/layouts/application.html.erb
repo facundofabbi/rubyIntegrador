@@ -51,7 +51,7 @@
 
           <% if current_usuario.role == "Cliente"%>
             <li class="nav-item">
-            <%= link_to sucursales_turnos_path, class: "nav-link"  do %>
+            <%= link_to sucursals_turnos_path, class: "nav-link"  do %>
                 <i class="fas fa-fw fa-tags"></i>
                 <span>Necesitas un prestamo?</span>
                 <%end%>
@@ -75,7 +75,7 @@
 
           <% if current_usuario.role == "Personal Bancario"%>
             <li class="nav-item">
-              <%= link_to sucursales_path, class: "nav-link"  do %>
+              <%= link_to sucursals_path, class: "nav-link"  do %>
                 <i class="fas fa-fw fa-users"></i>
                 <span>Ver Sucursales</span></a>
                 <%end%>
@@ -98,7 +98,7 @@
 
           <% if current_usuario.role == "Administrador"%>
             <li class="nav-item">
-              <%= link_to sucursales_path, class: "nav-link"  do %>
+              <%= link_to sucursals_path, class: "nav-link"  do %>
                 <i class="fas fa-fw fa-users"></i>
                 <span>Ver Sucursales</span></a>
                 <%end%>

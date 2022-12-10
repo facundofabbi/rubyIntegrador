@@ -1,7 +1,13 @@
-<button type="button" class="btn btn-outline-dark"><%= link_to 'Volver al listado', sucursales_path %></button>
+<button type="button" class="btn btn-outline-dark"><%= link_to 'Volver al listado', sucursals_path %></button>
 <h2>Agregar un nuevo horario para la sucursal: <%= @sucursal.nombre %></h2>
 <%= form_with model: @horario do |form| %>
-
+    <% if !@horario.nil? %>
+        <% @horario.errors.full_messages.each do |error| %>
+            <div class="alert alert-danger" role="alert">
+                <%= error %>
+            </div>
+        <% end %>
+        <% end %>
     <div class="form-group">
         <%= form.label :Dia %>
         <%= form.select :dia, ["Lunes", "Martes", "Miercoles", "Jueves", "Viernes"] %>

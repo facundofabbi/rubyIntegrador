@@ -8,6 +8,7 @@ class CreateHorarios < ActiveRecord::Migration[7.0]
 
       t.timestamps
     end
+    add_index :horarios, [:sucursal_id, :dia], unique: true
   end
   
 end

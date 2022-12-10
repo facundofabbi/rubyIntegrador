@@ -3,6 +3,9 @@ class Sucursal < ApplicationRecord
     has_many :turnos, dependent: :destroy
     has_many :usuarios
 
+    validates :nombre, :direccion, :telefono , presence: { message: "Por favor complete todos los campos" }
+    validates :nombre, uniqueness: { case_sensitive: false }
+
     def self.chequear_turno(dia,hora_solicitada,sucursal_id)
         horarios = Sucursal.find(sucursal_id).horario
         horarios.each do |ho|

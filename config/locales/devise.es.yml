@@ -29,6 +29,26 @@ es:
       user:
         one: Usuario
         other: Usuarios
+    errors:
+      models:
+        sucursal:
+          attributes:
+            nombre:
+              taken: "Ya existe una sucursal con ese nombre" 
+        usuario:
+          attributes:
+            email:
+              taken: "El email ya esta en uso"
+              blank: "El mail es obligatorio"
+            password:
+              blank: "La contraseña es obligatoria"
+              too_short: "La contraseña es muy corta"
+            current_password:
+              blank: "Debe completar la contraseña"
+              invalid: "La contraseña es invalida"
+            password_confirmation:
+              confirmation: "Las contraseñas no coinciden"
+              
   devise:
     confirmations:
       confirmed: Tu cuenta ha sido confirmada satisfactoriamente.
@@ -145,3 +165,6 @@ es:
       not_saved:
         one: 'Ocurrió un error al tratar de guardar %{resource}:'
         other: 'Ocurrieron %{count} errores al tratar de guardar %{resource}:'
+    
+
+  

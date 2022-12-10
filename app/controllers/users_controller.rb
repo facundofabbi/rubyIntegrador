@@ -17,12 +17,19 @@ class UsersController < ApplicationController
         @usuario = Usuario.new
     end
 
+
     def create
-        @usuario = Usuario.create!({:nombre => params[:nombre], :email => params[:email], :password => params[:password], :password_confirmation => params[:password_confirmation], :role => params[:role], :sucursal_id => params[:sucursal_id] })
-        if @usuario.save 
-            redirect_to users_path
-        else
-            render :new
+        
+        begin @usuario = Usuario.create({:nombre => params[:nombre], :email => params[:email], :password => params[:password], :password_confirmation => params[:password_confirmation], :role => params[:role], :sucursal_id => params[:sucursal_id] })
+            if @usuario.save 
+                redirect_to users_path
+            else
+                flash[:notice] = @usuario.errors.messages
+                render :new, status: :unprocessable_entity
+            end
+        rescue
+            flash[:notice] = "El nombre ya esta en uso"
+            render :new, status: :unprocessable_entity
         end
     end
 
@@ -50,6 +57,18 @@ class UsersController < ApplicationController
     end
 
 
+    def destroy
+        @usuario = Usuario.find(params[:id])
+        if current_usuario.id != @usuario.id
+            Turno.eliminar_turnos(@usuario.id)
+            @usuario.destroy
+            flash[:notice] = "Se elimino con exito el cliente"
+            redirect_to users_path
+        else
+            flash[:notice] = "No puedes eliminar tu cuenta!"
+            redirect_to users_path
+        end
+    end
 
 
     private 

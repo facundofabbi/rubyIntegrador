@@ -1,7 +1,7 @@
 <% if current_usuario.role == "Cliente"%>
-    <button type="button" class="btn btn-outline-dark"><%= link_to 'Volver al listado', sucursales_turnos_path %></button>
+    <button type="button" class="btn btn-outline-dark"><%= link_to 'Volver al listado', sucursals_turnos_path %></button>
 <% else %>
-  <button type="button" class="btn btn-outline-dark"><%= link_to 'Volver al listado', sucursales_path %></button>
+  <button type="button" class="btn btn-outline-dark"><%= link_to 'Volver al listado', sucursals_path %></button>
 <% end %>
 
 <% if @horario.empty?%>

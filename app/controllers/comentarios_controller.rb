@@ -7,12 +7,13 @@ class ComentariosController < ApplicationController
 
     def create
         @comentario =  Comentario.new({:texto => params[:texto], :personal_id => params[:personal_id], :turno_id => params[:turno_id] })
-        pp "SAAAAAAAAAAAAAAAAA",params
         if @comentario.save
             Turno.cargar_personal_y_estado(params[:personal_id], params[:turno_id] )
+            flash[:notice] = "El comentario se agrego con exito!"
             redirect_to turnos_path(estado: "Pendiente")
         else
-            render :new 
+            flash[:notice] = "Por favor ingrese un comentario"
+            redirect_to new_comentario_path(params[:turno_id])
         end
     end
 

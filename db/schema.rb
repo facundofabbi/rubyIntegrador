@@ -28,6 +28,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_08_043743) do
     t.integer "sucursal_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["sucursal_id", "dia"], name: "index_horarios_on_sucursal_id_and_dia", unique: true
   end
 
   create_table "sucursals", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|

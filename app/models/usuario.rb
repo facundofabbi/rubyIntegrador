@@ -13,4 +13,6 @@ class Usuario < ApplicationRecord
   belongs_to :sucursal, class_name: "Sucursal", optional:true
 
 
+
+
 end

@@ -6,10 +6,16 @@ class HorariosController < ApplicationController
 
     def create
         @horario = Horario.new({:dia => params[:dia], :hora_inicio => params[:hora_inicio], :hora_fin => params[:hora_fin], :sucursal_id => params[:sucursal_id] })
-        if @horario.save
-            redirect_to sucursales_path
-        else
-            render :new 
+        begin
+            if @horario.save
+                redirect_to sucursals_path
+            else
+                flash[:notice] = @horario.errors.messages
+                redirect_to "/sucursals/#{params[:id]}/horarios/new"
+            end
+        rescue
+            flash[:notice] = "Ya existe horarios para ese dia. Recuerda que solo se puede agregar un horario por dia!"
+            redirect_to "/sucursals/#{params[:id]}/horarios/new"
         end
     end
 
@@ -25,13 +31,11 @@ class HorariosController < ApplicationController
     def update
         @horario = Horario.find(params[:id])
         if @horario.update(horario_params)
-            redirect_to sucursales_path
+            redirect_to sucursals_path
         else
-            redirect_to "/sucursales/#{@horario.id}/horarios/edit"
+            flash[:notice] = @horario.errors.messages
+            redirect_to "/sucursals/#{@horario.id}/horarios/edit"
         end
-        #flash[:errors] = @horario.errors.full_messages
-        #redirect_to "/horarios/#{@horario.id}/edit"
-        
     end
 
     private

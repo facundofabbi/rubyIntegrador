@@ -12,6 +12,7 @@
         <th>Atender</th>
       <% elsif @estado != "Atendido"  %>
         <th>Cancelar</th>
+        <th>Editar</th>
       <% elsif %>
         <th>Ver Comentario</th>
       <% end %>
@@ -22,24 +23,28 @@
       <td> <%= tur.hora.strftime("%H:%M") %> </td>
       <td> <%= tur.motivo %> </td>
       <td> <%= tur.estado %> </td>
-      <td>
+      
       <% if current_usuario.role == "Personal Bancario"%>
-        <%= link_to new_comentario_path(tur.id) do %>
-          <button type="button" class="btn btn-primary"> 
-            <span>Atender</span>
-          </button> 
-        <%end%>
+        <td>
+          <%= link_to new_comentario_path(tur.id) do %>
+            <button type="button" class="btn btn-primary"> 
+              <span>Atender</span>
+            </button> 
+          <%end%>
         </td>
       <% elsif @estado != "Atendido"  %>
-          <%= button_to 'Cancelar', destroy_turno_path(tur.id),method: :delete , class:'btn btn-danger' %>
-      <% elsif %>
-        <%= link_to comentario_path(tur.id) do %>
-          <button type="button" class="btn btn-primary"> 
-            <span>Ver Comentario</span>
-          </button> 
-        <%end%>
+          <td><%= button_to 'Cancelar', destroy_turno_path(tur.id),method: :delete , class:'btn btn-danger' %></td>
+          <td><%= button_to 'Modificar', edit_turno_path(tur.id), class:'btn btn-warning' %></td>
+      <% else %>
+        <td>
+          <%= link_to comentario_path(tur.id) do %>
+            <button type="button" class="btn btn-primary"> 
+              <span>Ver Comentario</span>
+            </button> 
+          <%end%>
+        </td>
       <% end %>
-      </td>
+      
     </tr>
     <%end%>
     

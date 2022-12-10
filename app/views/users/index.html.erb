@@ -11,6 +11,7 @@
     <th>Ver</th>
     <% if current_usuario.role == "Administrador"%>
       <th>Editar</th>
+      <th>Eliminar</th>
     <% end %>
   </tr>
   <% @usuarios.each do |usu| %>
@@ -33,6 +34,9 @@
           <span>Editar usuario</span>
         </button>    
       <%end%>
+      </td>
+      <td>
+      <%= button_to 'Eliminar Usuario', destroy_user_path(usu.id),method: :delete , class:'btn btn-danger' %>
       </td>
     <% end %>
   </tr>

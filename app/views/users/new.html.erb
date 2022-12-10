@@ -23,6 +23,7 @@
         <%= form.text_field :password_confirmation%>
     </div>
 
+    <%= form.hidden_field :admin, value: @admin %>
     <% if @admin == "false"  %>
         <%= form.hidden_field :role, value: "Personal Bancario" %>
         <div class="form-group">
