@@ -19,10 +19,16 @@
         <%= form.label :email %>
         <%= form.text_field :email%>
     </div>
+    <% if @admin == "true"  %>
+        <div class="form-group">
+            <%= form.label :seleccione_una_sucursal %>
+            <%= form.select "sucursal_id", options_for_select(Sucursal.all.collect { |su| [su.nombre, su.id] }, @usuario.sucursal_id)%>
+        </div>
+    <%end%>
 
     
 
-    <%= form.submit %>
+    <%= form.submit "Actualizar usuario" %>
 
 
 <%end%>

@@ -38,6 +38,15 @@ class HorariosController < ApplicationController
         end
     end
 
+    def destroy
+        @horario = Horario.find(params[:horario])
+        if @horario.destroy
+            redirect_to "/sucursals/#{params[:id]}/horarios" , notice: "El horario se ah eliminado con exito"
+        else
+            redirect_to "/sucursals/#{params[:id]}/horarios" , notice: "El horario no se ah podeido elimminar"
+        end
+    end
+
     private
 
         def horario_params
