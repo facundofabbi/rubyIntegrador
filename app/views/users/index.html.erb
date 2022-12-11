@@ -28,13 +28,25 @@
     <%end%>
     </td>
     <% if current_usuario.role == "Administrador"%>
-      <td>
-      <%= link_to edit_usuario_path(usu.id) do %>
-        <button type="button" class="btn btn-primary">
-          <span>Editar usuario</span>
-        </button>    
-      <%end%>
-      </td>
+      <% if usu.role == "Personal Bancario"%>
+        <td>
+        <%= link_to edit_usuario_path(usu.id, admin: true) do %>
+          <button type="button" class="btn btn-primary">
+            <span>Editar usuario</span>
+          </button>  
+          
+        <%end%>
+        </td>
+       <%else%>
+       <td>
+        <%= link_to edit_usuario_path(usu.id, admin: false) do %>
+          <button type="button" class="btn btn-primary">
+            <span>Editar usuario</span>
+          </button>  
+          
+        <%end%>
+        </td> 
+        <%end%>
       <td>
       <%= button_to 'Eliminar Usuario', destroy_user_path(usu.id),method: :delete , class:'btn btn-danger' %>
       </td>

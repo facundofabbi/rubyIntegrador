@@ -31,9 +31,10 @@ Rails.application.routes.draw do
  
   get '/sucursals', to: 'sucursals#index', as: :sucursals
   get '/sucursals_turnos', to: 'sucursals#index_turno'
-  #get '/sucursals/:id', to: 'sucursals#show', as: :sucursals
 
 
+
+  delete '/sucursals/:id/horarios', to: 'horarios#destroy', as: :destroy_horario
   post '/sucursals/:id/horarios/new', to: 'horarios#create'
   get '/sucursals/:id/horarios/new', to: 'horarios#new', as: :new_horario
   get '/sucursals/:id/horarios', to: 'horarios#show', as: :horario

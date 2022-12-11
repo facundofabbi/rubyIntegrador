@@ -15,6 +15,7 @@
       <th>Hora de fin</th>
       <% if current_usuario.role == "Administrador"%>
         <th>Editar horario</th>
+        <th>Eliminar horario</th>
       <% end %>
     </tr>
     <% @horario.each do |ho| %>
@@ -29,6 +30,9 @@
               <span>Editar horario</span>
             </button>
           <%end%>
+        </td>
+        <td>
+        <%= button_to 'Eliminar horario', destroy_horario_path(horario: ho.id),method: :delete , class:'btn btn-danger' %>
         </td>
       <%end%>
       </tr>
