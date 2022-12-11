@@ -125,6 +125,5 @@ El servidor se encontrará funcionando en [http://localhost:3000](http://localho
 # Decisiones de diseño
 
 ## Control de acceso
-- Para controlar el acceso a las diferentes rutas y acciones que pueden realizar los distintos roles se utilizó la gema CANCANCAN
 
 - Los usuarios autenticados solo pueden acceder a sus propias Turnos y sus datos.
