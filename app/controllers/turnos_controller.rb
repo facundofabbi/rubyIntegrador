@@ -1,4 +1,5 @@
 class TurnosController < ApplicationController
+    load_and_authorize_resource
     def index
         begin
             @estado = params[:estado]
@@ -73,6 +74,32 @@ class TurnosController < ApplicationController
         @turno = Turno.find(params[:id])
         @turno.destroy
         redirect_to turnos_path(estado: "Pendiente")
+    end
+
+
+
+    def newComentario
+        @personal_id = current_usuario.id
+        @turno = params[:id]
+    end
+
+    def createComentario
+        @turno = Turno.find(params[:id])
+        @turno.comentario = params[:texto]
+        if @turno.update(:comentario => params[:texto])
+            Turno.cargar_personal_y_estado(params[:personal_id], params[:turno_id] )
+            flash[:notice] = "El comentario se agrego con exito!"
+            redirect_to turnos_path(estado: "Pendiente")
+        else
+            flash[:notice] = "Por favor ingrese un comentario"
+            redirect_to new_comentario_path(params[:turno_id])
+        end
+    end
+
+    def showComentario
+        @comentario = Turno.where(:turno_id => params[:id]).first
+        @comentario = @comentario.comentario
+        @personal = Usuario.find(@comentario.personal_id)
     end
 
     private

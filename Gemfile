@@ -9,6 +9,8 @@ gem "bootstrap", "~> 5.0"
 gem "jquery-rails"
 gem "font_awesome5_rails"
 
+gem "cancancan"
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.4"
 

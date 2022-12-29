@@ -53,9 +53,9 @@ Horario.create(:dia => "Viernes", :hora_inicio => "11:00", :hora_fin => "16:00",
 
 Horario.create(:dia => "Miercoles", :hora_inicio => "11:00", :hora_fin => "16:00", :sucursal_id => 4)
 
-Turno.create(:fecha => "02-01-2023", :hora => "11:00", :motivo => "Prestamos de $700", :estado => "Pendiente", :sucursal_id => 1, :cliente_id => 9)
-Turno.create(:fecha => "02-01-2023", :hora => "12:00", :motivo => "Consulta bancaria por motivos de cobros", :estado => "Pendiente", :sucursal_id => 2, :cliente_id => 9)
-Turno.create(:fecha => "04-01-2023", :hora => "08:00", :motivo => "Sin Motivo", :estado => "Pendiente", :sucursal_id => 3, :cliente_id => 9)
+Turno.create(:fecha => "02-01-2023", :hora => "11:00", :motivo => "Prestamos de $700", :estado => "Pendiente", :sucursal_id => 1, :cliente_id => 9, :comentario => "a")
+Turno.create(:fecha => "02-01-2023", :hora => "12:00", :motivo => "Consulta bancaria por motivos de cobros", :estado => "Pendiente", :sucursal_id => 2, :cliente_id => 9, :comentario => "a")
+Turno.create(:fecha => "04-01-2023", :hora => "08:00", :motivo => "Sin Motivo", :estado => "Pendiente", :sucursal_id => 3, :cliente_id => 9, :comentario => "a")
 
 Turno.create(:fecha => "02-01-2023", :hora => "11:00", :motivo => "Prestamo de casa", :estado => "Pendiente", :sucursal_id => 1, :cliente_id => 10)
 Turno.create(:fecha => "02-01-2023", :hora => "12:00", :motivo => "Prestamo de un inflable", :estado => "Pendiente", :sucursal_id => 2, :cliente_id => 10)
@@ -69,8 +69,8 @@ Turno.create(:fecha => "03-01-2023", :hora => "11:00", :motivo => "Hola motivo",
 
 Turno.create(:fecha => "03-01-2023", :hora => "11:00", :motivo => "Porq si", :estado => "Atendido", :sucursal_id => 5, :cliente_id => 10, :personal_id => 3)#11
 
-Comentario.create(:texto => "Se finalizo con exito la consulta que tenia el cliente sobre el prestamo", :turno_id=> 7 , :personal_id => 3 )
-Comentario.create(:texto => "Probando texto del comentario", :turno_id=> 8 , :personal_id => 3 )
-Comentario.create(:texto => "Ya se termino", :turno_id=> 9 , :personal_id => 3 )
-Comentario.create(:texto => "No vino a la consulta", :turno_id=> 10 , :personal_id => 3 )
-Comentario.create(:texto => "Termine el trabajo(creo)", :turno_id=> 11 , :personal_id => 3 )
+#Comentario.create(:texto => "Se finalizo con exito la consulta que tenia el cliente sobre el prestamo", :turno_id=> 7 , :personal_id => 3 )
+#Comentario.create(:texto => "Probando texto del comentario", :turno_id=> 8 , :personal_id => 3 )
+#Comentario.create(:texto => "Ya se termino", :turno_id=> 9 , :personal_id => 3 )
+#Comentario.create(:texto => "No vino a la consulta", :turno_id=> 10 , :personal_id => 3 )
+#Comentario.create(:texto => "Termine el trabajo(creo)", :turno_id=> 11 , :personal_id => 3 )

@@ -1,4 +1,5 @@
 class HorariosController < ApplicationController
+    load_and_authorize_resource
     def new
         @horarios = Horario.new
         @sucursal = Sucursal.find(params[:id])

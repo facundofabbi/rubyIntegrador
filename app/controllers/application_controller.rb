@@ -7,7 +7,9 @@ class ApplicationController < ActionController::Base
             user.permit(:nombre, :email, :password, :password_confirmation)
         end
     end
-
     
-    
+    def current_user
+        current_usuario
+    end
+      
 end

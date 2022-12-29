@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+    load_and_authorize_resource
     def index
         if params[:role].nil?
             @usuarios = Usuario.all
@@ -61,6 +62,7 @@ class UsersController < ApplicationController
     def destroy
         @usuario = Usuario.find(params[:id])
         if current_usuario.id != @usuario.id
+            #Turno.eliminar_turnos(@usuario.id)
             Turno.eliminar_turnos(@usuario.id)
             @usuario.destroy
             flash[:notice] = "Se elimino con exito el cliente"
