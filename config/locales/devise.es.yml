@@ -48,6 +48,10 @@ es:
               invalid: "La contraseña es invalida"
             password_confirmation:
               confirmation: "Las contraseñas no coinciden"
+        horario:
+          attributes:
+            dia:
+              taken: "Ya existe un horario para ese dia!"
               
   devise:
     confirmations:

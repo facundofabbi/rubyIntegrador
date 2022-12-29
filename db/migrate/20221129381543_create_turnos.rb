@@ -8,6 +8,7 @@ class CreateTurnos < ActiveRecord::Migration[7.0]
       t.time :hora
       t.string :motivo
       t.string :estado
+      t.string :comentario
       t.timestamps
     end
   end

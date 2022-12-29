@@ -1,4 +1,5 @@
 class HorariosController < ApplicationController
+    load_and_authorize_resource
     def new
         @horarios = Horario.new
         @sucursal = Sucursal.find(params[:id])
@@ -6,17 +7,17 @@ class HorariosController < ApplicationController
 
     def create
         @horario = Horario.new({:dia => params[:dia], :hora_inicio => params[:hora_inicio], :hora_fin => params[:hora_fin], :sucursal_id => params[:sucursal_id] })
-        begin
+        #begin
             if @horario.save
                 redirect_to sucursals_path
             else
                 flash[:notice] = @horario.errors.messages
                 redirect_to "/sucursals/#{params[:id]}/horarios/new"
             end
-        rescue
-            flash[:notice] = "Ya existe horarios para ese dia. Recuerda que solo se puede agregar un horario por dia!"
-            redirect_to "/sucursals/#{params[:id]}/horarios/new"
-        end
+        #rescue
+        #    flash[:notice] = "Ya existe horarios para ese dia. Recuerda que solo se puede agregar un horario por dia!"
+        #    redirect_to "/sucursals/#{params[:id]}/horarios/new"
+        #end
     end
 
     def show
@@ -50,7 +51,7 @@ class HorariosController < ApplicationController
     private
 
         def horario_params
-            params.require(:horario).permit(:dia, :hora_inicio, :hora_fin, :sucursal_id)
+            params.permit(:dia, :hora_inicio, :hora_fin, :sucursal_id)
         end
 
 

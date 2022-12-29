@@ -126,4 +126,5 @@ El servidor se encontrará funcionando en [http://localhost:3000](http://localho
 
 ## Control de acceso
 
+
 - Los usuarios autenticados solo pueden acceder a sus propias Turnos y sus datos.

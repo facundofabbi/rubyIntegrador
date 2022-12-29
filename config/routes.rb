@@ -41,9 +41,9 @@ Rails.application.routes.draw do
   get '/sucursals/:id/horarios/edit', to: 'horarios#edit', as: :edit_horario
   patch '/sucursals/:id/horarios', to: 'horarios#update'
 
-  post '/comentarios/:id/new', to: 'comentarios#create'
-  get '/comentarios/:id/new', to: 'comentarios#new', as: :new_comentario
-  get 'comentarios/:id', to: 'comentarios#show', as: :comentario
+  post '/comentarios/:id/new', to: 'turnos#createComentario'
+  get '/comentarios/:id/new', to: 'turnos#newComentario', as: :new_comentario
+  get 'comentarios/:id', to: 'turnos#showComentario', as: :comentario
 
 
 

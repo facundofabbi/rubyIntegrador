@@ -1,4 +1,5 @@
 class SucursalsController < ApplicationController
+    load_and_authorize_resource
     def index
         @sucursales = Sucursal.all
     end
@@ -29,7 +30,7 @@ class SucursalsController < ApplicationController
         @sucursal = Sucursal.find(params[:id])
         #@usuarios = Sucursal.find(params[:id]).usuarios
         if Sucursal.chequear_eliminar(params[:id])
-            Comentario.eliminar_comentarios(@sucursal)
+            #Comentario.eliminar_comentarios(@sucursal)
             @sucursal.destroy
             redirect_to sucursals_path, notice: "La sucursal ah sido editada con exito!!"
         else
