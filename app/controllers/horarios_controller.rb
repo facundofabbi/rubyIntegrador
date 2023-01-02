@@ -6,7 +6,8 @@ class HorariosController < ApplicationController
     end
 
     def create
-        @horario = Horario.new({:dia => params[:dia], :hora_inicio => params[:hora_inicio], :hora_fin => params[:hora_fin], :sucursal_id => params[:sucursal_id] })
+        pp "ESTO ES EL HROARIO", params
+        @horario = Horario.new({:dia => params[:horario][:dia], :hora_inicio => params[:horario][:hora_inicio], :hora_fin => params[:horario][:hora_fin], :sucursal_id => params[:horario][:sucursal_id] })
         #begin
             if @horario.save
                 redirect_to sucursals_path

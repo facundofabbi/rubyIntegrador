@@ -25,14 +25,14 @@
       <td> <%= ho.hora_fin.strftime("%H:%M")  %> </td>
       <% if current_usuario.role == "Administrador"%>
         <td>
-          <%= link_to edit_horario_path(ho.id) do %>
+          <%= link_to edit_horarios_path(ho.id) do %>
             <button type="button" class="btn btn-primary"> 
               <span>Editar horario</span>
             </button>
           <%end%>
         </td>
         <td>
-        <%= button_to 'Eliminar horario', destroy_horario_path(horario: ho.id),method: :delete , class:'btn btn-danger' %>
+        <%= button_to 'Eliminar horario', destroy_horarios_path(horario: ho.id),method: :delete , class:'btn btn-danger' %>
         </td>
       <%end%>
       </tr>
