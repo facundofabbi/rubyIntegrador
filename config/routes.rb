@@ -34,12 +34,12 @@ Rails.application.routes.draw do
 
 
 
-  delete '/sucursals/:id/horarios', to: 'horarios#destroy', as: :destroy_horario
-  post '/sucursals/:id/horarios/new', to: 'horarios#create'
+  delete '/sucursals/:id/horarios', to: 'horarios#destroy', as: :destroy_horarios
+  post '/sucursals/:id/horarios/new', to: 'horarios#create', as: :create_horarios
   get '/sucursals/:id/horarios/new', to: 'horarios#new', as: :new_horario
-  get '/sucursals/:id/horarios', to: 'horarios#show', as: :horario
-  get '/sucursals/:id/horarios/edit', to: 'horarios#edit', as: :edit_horario
-  patch '/sucursals/:id/horarios', to: 'horarios#update'
+  get '/sucursals/:id/horarios', to: 'horarios#show', as: :horarios
+  get '/sucursals/:id/horarios/edit', to: 'horarios#edit', as: :edit_horarios
+  patch '/sucursals/:id/horarios', to: 'horarios#update',as: :update_horarios
 
   post '/comentarios/:id/new', to: 'turnos#createComentario'
   get '/comentarios/:id/new', to: 'turnos#newComentario', as: :new_comentario

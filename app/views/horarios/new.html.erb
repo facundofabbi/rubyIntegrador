@@ -1,6 +1,6 @@
 <button type="button" class="btn btn-outline-dark"><%= link_to 'Volver al listado', sucursals_path %></button>
 <h2>Agregar un nuevo horario para la sucursal: <%= @sucursal.nombre %></h2>
-<%= form_with model: @horario do |form| %>
+<%= form_with model: @horario, url: create_horarios_path, method: :post do |form| %>
     <% if !@horario.nil? %>
         <% @horario.errors.full_messages.each do |error| %>
             <div class="alert alert-danger" role="alert">
